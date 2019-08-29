@@ -4,7 +4,7 @@
 
 ## Schedule
 
-- Version: Mon 27 maj 2019 09:45:43
+- Version: 08/29/2019 08:56:39 PM
 - Sign: JN
 
 ### Day 1: Tuesday 9/17/2019
@@ -12,13 +12,13 @@
 |Start|End|Topic|
 |---|---|---|
 |9:30|10:00|Welcome and registration|
-|10:00|$\to$|Course introduction|
-||12:00|Bioinformatics and Bioinformaticians - What is it? and What do they(/we) do?|
+|10:15|11:00|Bioinformatics and Bioinformaticians|
+|11:15|12:00|Interdisciplinary collaboration|
 |12:00|13:00|Lunch (provided)|
-|13:00|$\to$|Getting bioinformatcs done - How? By whom?|
-|||Bioinformatic work-flow examples: Hands on sessions!|
+|13:00|14:00|Bioinformatics work-flows|
+|14:00|14:30|Getting bioinformatics done: hands-on|
 |14:30|15:00|Coffee (provided)|
-|15:00|17:00|Cont.|
+|15:00|17:00|Cont. hands-on|
 |18:00|Late|Dinner (provided)|
 
 ### Day 2: Wednesday 9/18/2019
