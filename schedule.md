@@ -31,10 +31,10 @@ Room: Air and Fire
 |15:00|16:30|Open discussion: SciLifeLab and NBIS - What can we do for you? (All)|
 |16:30|17:00|Course wrap-up and feedback (Jessica Lindvall, Johan Nylander)|
 
-*coffee break* every afternoon, ca. 14.30
-*lunch* at the ___
-*dinner* at the ___
-*Coffee breaks, lunches and course dinner are included*
+- *coffee break* every afternoon, ca. 14.30
+- *lunch* is at the ___
+- *dinner* is at the ___
+- *(coffee breaks, lunches and course dinner are included)*
 
 
 <br/>
