@@ -9,7 +9,7 @@ To contribute teaching materials:
 ```bash
 # Clone the repository
 git clone https://github.com/NBISweden/course-Bioinformatics-for-PIs.git
-cd /course-Bioinformatics-for-PIs
+cd /workshop-Bioinformatics-for-PIs
 
 # Checkout feature branch to work on
 git checkout -b session-example
