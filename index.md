@@ -16,3 +16,8 @@ title:  'Bioinformatics for Principal Investigators'
 ##### [Schedule](schedule.md)
 
 -----------
+
+<br/>
+<br/>
+[Course announcement](README.md)
+
