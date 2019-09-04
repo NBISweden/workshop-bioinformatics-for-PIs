@@ -1,9 +1,5 @@
-### Bioinformatics for principal investigators, 17-18 September 2019		
-
+**Bioinformatics for principal investigators, 17-18 September 2019**
 **Venue:** Air and Fire lecture halls, [SciLifeLab, Campus Solna, Tomtebodavägen 23a, 171 65 Solna](https://goo.gl/maps/t5UJwMa12tNPEvQ5A).		
-
-#### Schedule
-
 
 ##### Day 1: Tuesday 2019-09-17
 Room: Air and Fire
@@ -32,10 +28,9 @@ Room: Air and Fire
 |16:30|17:00|Course wrap-up and feedback (Jessica Lindvall, Johan Nylander)|
 
 - *coffee break* every afternoon, ca. 14.30
-- *lunch* is at the ___
-- *dinner* is at the ___
+- *lunch* is at the Nanna Svartz, Aula Medica
+- *dinner* somewhere in Vasastan
 - *(coffee breaks, lunches and course dinner are included)*
-
 
 <br/>
 
