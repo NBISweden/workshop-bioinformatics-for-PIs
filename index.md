@@ -11,8 +11,8 @@ title:  'Bioinformatics for Principal Investigators'
 
 ----------
 
-##### [Pre-course materials](precourse.md)
-##### [Travelling information](travel.md)
+###### [Pre-course materials](precourse.md)
+###### [Travelling information](travel.md)
 ##### [Schedule](schedule.md)
 
 -----------
