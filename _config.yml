@@ -1,0 +1,29 @@
+title: "Biostatistics Essentials: a blackboard approach"
+baseurl: /workshop-biostatistics
+
+# where things are
+layouts_dir: ./workshop-common/layouts
+includes_dir: ./workshop-common/includes
+sass:
+  sass_dir: ./workshop-common/sass
+
+plugins:
+  - jemoji
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+
+defaults:
+  - values:
+      logosnav: true
+
+menu:
+  - title: Overview
+    url:
+  - title: Schedule
+    url: schedule
+  - title: Pre-course material
+    url: precourse
+  - title: Travel info
+    url: travel
