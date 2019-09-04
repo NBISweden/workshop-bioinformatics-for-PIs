@@ -1,11 +1,11 @@
-# Bioinformatics for principal investigators, 17-18 September 2019		
+### Bioinformatics for principal investigators, 17-18 September 2019		
 
 **Venue:** Air and Fire lecture halls, [SciLifeLab, Campus Solna, Tomtebodavägen 23a, 171 65 Solna](https://goo.gl/maps/t5UJwMa12tNPEvQ5A).		
 
-## Schedule
+#### Schedule
 
 
-### Day 1: Tuesday 2019-09-17
+##### Day 1: Tuesday 2019-09-17
 Room: Air and Fire
 
 |Start|End|Topic|
@@ -18,7 +18,7 @@ Room: Air and Fire
 |14:00|17:00|Getting bioinformatics done: hands-on (Agata Smialowska, Olga Dethlefsen, Johan Nylander)|
 |18:00|Late|*Dinner*|
 
-### Day 2: Wednesday 2019-09-18
+##### Day 2: Wednesday 2019-09-18
 Room: Air and Fire
 
 |Start|End|Topic|
