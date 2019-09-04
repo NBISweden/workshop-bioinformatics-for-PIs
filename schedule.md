@@ -19,8 +19,8 @@ Room: Air and Fire
 
 |Start|End|Topic|
 |---|---|---|
-|09:00|10.30|The importance of managing data quality and content: ensuring reproducibility (Niclas Jareborg, Yvonne Kallberg)|
-|10:00|12:00|Data management plans: Why, Where, and How? (Niclas Jareborg, Yvonne Kallberg)|
+|09:00|10.00|The importance of managing data quality and content: ensuring reproducibility (Niclas Jareborg, Yvonne Kallberg)|
+|10:15|12:00|Data management plans: Why, Where, and How? (Niclas Jareborg, Yvonne Kallberg)|
 |12:00|13:00|*Lunch*|
 |13:00|13:45|Data generation: Where? What? How much? (Carl Rubin)|
 |13:50|15:00|Computational resources: What is needed and Where do I get it? (Marcus Lundberg)|
