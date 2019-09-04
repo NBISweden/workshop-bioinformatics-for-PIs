@@ -8,8 +8,8 @@ To contribute teaching materials:
 ### Clone Github repository
 ```bash
 # Clone the repository
-git clone https://github.com/NBISweden/course-Bioinformatics-for-PIs.git
-cd /workshop-Bioinformatics-for-PIs
+git clone https://github.com/NBISweden/workshop-bioinformatics-for-PIs
+cd /workshop-bioinformatics-for-PIs
 
 # Checkout feature branch to work on
 git checkout -b session-example
@@ -61,7 +61,7 @@ Go to course repository [https://github.com/NBISweden/course-Bioinformatics-for-
 
 
 ## Course website
-https://nbisweden.github.io/course-Bioinformatics-for-PIs/
+https://nbisweden.github.io/workshop-bioinformatics-for-PIs/
 
 _*renders from master branch_
 
