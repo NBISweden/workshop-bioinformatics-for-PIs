@@ -1,4 +1,4 @@
-**Bioinformatics for principal investigators, 17-18 September 2019**
+##### Bioinformatics for principal investigators, 17-18 September 2019
 **Venue:** Air and Fire lecture halls, [SciLifeLab, Campus Solna, Tomtebodavägen 23a, 171 65 Solna](https://goo.gl/maps/t5UJwMa12tNPEvQ5A).		
 
 ##### Day 1: Tuesday 2019-09-17
