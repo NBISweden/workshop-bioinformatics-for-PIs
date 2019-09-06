@@ -37,7 +37,7 @@ After this course you should be able to:
 
 ### Preliminary schedule
 
-A preliminary schedule is accessible here: [doc/schedule.md](doc/schedule.md)
+A preliminary schedule is accessible here: [schedule.md](schedule.md)
 
 
 ## Entry requirements
