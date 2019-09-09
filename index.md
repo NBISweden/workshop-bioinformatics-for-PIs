@@ -18,5 +18,5 @@ title:  'Bioinformatics for Principal Investigators'
 -----------
 
 <br/>
-[*Back to course announcement*](README.md)
+[*Back to course announcement*](announcement.md)
 
