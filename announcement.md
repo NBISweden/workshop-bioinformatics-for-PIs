@@ -47,6 +47,12 @@ After this course you should be able to:
 A schedule is accessible here: [schedule.md](schedule.md)
 
 
+### Course web page
+
+[https://nbisweden.github.io/workshop-bioinformatics-for-PIs](https://nbisweden.github.io/workshop-bioinformatics-for-PIs)
+
+
+
 ## Entry requirements
 
 No prior knowledge of bioinformatics, or experience of bioinformatic analysis is required for this course.
