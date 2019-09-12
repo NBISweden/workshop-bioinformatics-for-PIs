@@ -4,6 +4,42 @@ title:  'Hands-on Exercise'
 ---
 
 
+# Preparing a working directory
+To get going, let's book a node, create a working directory named _transcriptome_ in the _/proj/g2018002/nobackup/<username>/_ directory and link the raw sequencing files .fastq.gz. NB! Remember to replace <username> with your uppmax id throughout the exercise.
+
+:computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. 
+Please book a node only once, as otherwise you'll be taking resources from your fellow course participants.
+
+<details>
+<summary>:key: Click to see how to book a node</summary>
+{% highlight bash %}
+salloc -A g2019018 -t 03:30:00 -p core -n 10 --no-shell --reservation=g2019018_1
+{% endhighlight %} 
+</details>  
+<br />
+
+Now you can check which node you have booked:
+
+{% highlight bash %}
+jobinfo -u <username>
+{% endhighlight %} 
+
+In the following example *r278* is the node booked (scroll right):
+
+{% highlight bash %}
+CLUSTER: rackham
+Running jobs:
+   JOBID PARTITION                      NAME     USER        ACCOUNT ST          START_TIME  TIME_LEFT  NODES CPUS NODELIST(REASON)
+10033342      core              interactive    agata       g2019018  R 2019-09-12T11:41:13    9:58:24      1    1 r278
+{% endhighlight %}
+
+
+Connect to your node:
+
+{% highlight bash %}
+ssh <node>
+{% endhighlight %} 
+
 # <a name="begin"></a> RNA-seq data processing and QC tutorial
 RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. In this short introductory exercise we will present a workflow for QC and processing data from an RNA-seq experiment.
 
@@ -24,38 +60,4 @@ For the purpose of this tutorial, that is to shorten the time needed to run vari
 <br />
 [Jump to the top](#begin)
 
-## Preparing a working directory
-To get going, let's book a node, create a working directory named _transcriptome_ in the _/proj/g2018002/nobackup/<username>/_ directory and link the raw sequencing files .fastq.gz. NB! Remember to replace <username> with your uppmax id throughout the exercise.
 
-:computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. 
-Please book a node only once, as otherwise you'll be taking resources from your fellow course participants.
-
-<details>
-<summary>:key: Click to see how to book a node</summary>
-{% highlight bash %}
-salloc -A g2019018 -t 03:30:00 -p core -n 10 --no-shell --reservation=g2019018_1
-{% endhighlight %} 
-</details>  
-<br />
-
-Now you can check which node you have booked:
-
-{% highlight bash %}
-jobinfo -u <username>
-{% endhighlight %} 
-
-In the following example *r278* is the node booked:
-
-{% highlight bash %}
-CLUSTER: rackham
-Running jobs:
-   JOBID PARTITION                      NAME     USER        ACCOUNT ST          START_TIME  TIME_LEFT  NODES CPUS NODELIST(REASON)
-10033342      core              interactive    agata       g2019018  R 2019-09-12T11:41:13    9:58:24      1    1 r278
-{% endhighlight %}
-
-
-Connect to your node:
-
-{% highlight bash %}
-ssh <node>
-{% endhighlight %} 
