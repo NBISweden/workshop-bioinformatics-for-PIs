@@ -44,12 +44,13 @@ Now you can check which node you have booked:
 jobinfo -u <username>
 {% endhighlight %} 
 
-In the following example ** is the node booked:
+In the following example *r278* is the node booked:
 
 {% highlight bash %}
-Waiting jobs:
-   JOBID    POS PARTITION                      NAME     USER        ACCOUNT ST          START_TIME   TIME_LEFT PRIORITY CPUS NODELIST(REASON)     FEATURES DEPENDENCY
-10033342    548      core              interactive    agata       g2019018 PD 2019-09-12T17:11:14    10:00:00   152631    1      (Resources)       (null) 
+CLUSTER: rackham
+Running jobs:
+   JOBID PARTITION                      NAME     USER        ACCOUNT ST          START_TIME  TIME_LEFT  NODES CPUS NODELIST(REASON)
+10033342      core              interactive    agata       g2019018  R 2019-09-12T11:41:13    9:58:24      1    1 r278
 {% endhighlight %}
 
 
