@@ -4,26 +4,137 @@ title:  'Hands-on Exercise'
 ---
 
 ## Introduction
-This tutorial will take you through a basic hands-on skills to be able to
+This tutorial will take you through a basic hands-on skills to be able to:
+
 - navigate in unix environment & preview folders and files
 - clone Github repository
 - transfer data via `scp` between Uppmax and a local computer
-- transfer data via `stfp` from Grus
 - run basic bioinformatics tools to assess quality of the NGS data
 
 ### Basic unix commands
+We will practice on Rackham, Uppmax.
 
+**Logging in**
+```bash
+ssh -Y username@rackham.uppmax.uu.se
+```
+
+Now your screen should look something like this:
+```
+_   _ ____  ____  __  __    _    __  __
+| | | |  _ \|  _ \|  \/  |  / \   \ \/ /   | System:    rackham1
+| | | | |_) | |_) | |\/| | / _ \   \  /    | User:      olga
+| |_| |  __/|  __/| |  | |/ ___ \  /  \    |
+\___/|_|   |_|   |_|  |_/_/   \_\/_/\_\   |
+
+###############################################################################
+
+       User Guides: http://www.uppmax.uu.se/support/user-guides
+       FAQ: http://www.uppmax.uu.se/support/faq
+
+       Write to support@uppmax.uu.se, if you have questions or comments.
+```
+
+**Moving and looking around**
+When you connect to UPPMAX, you will start out in your home folder. The absolute path to your home folder is usually **/home/\<username\>**
+
+`ls`, Have a look what you have in your home folder. The command for this `ls`, and it stands for **L**i**S**t (list).
+
+```bash
+$ ls -l
+```
+
+You should have something similar to:
+```bash
+[olga@rackham1 ~]$ ls -l
+total 44
+drwxr-xr-x 2 olga olga    4096 Aug  7 11:01 bin
+drwxrwxr-x 3 olga olga    4096 Sep 10 09:12 example-data
+drwxr-x--- 3 olga olga    4096 Mar  2  2017 glob
+drwxr-xr-x 8 olga olga    4096 Sep  6 10:04 homer-ctcf-04
+drwxrwxr-x 4 olga olga    4096 Jan 28  2014 local
+drwxrwxr-x 2 olga courses 4096 Nov 21  2017 olga
+drwxrwxr-x 3 olga olga    4096 Feb 13  2013 opt
+drwx--S--- 2 olga olga    4096 Jan 18  2017 private
+drwxrwxr-x 6 olga olga    4096 Oct 15  2018 R
+drwxrwxr-x 7 olga olga    4096 Aug  9 16:32 tools
+drwxrwxr-x 4 olga olga    4096 Jan 27  2019 transfer-mast
+```
+
+*Note, -l is an option. For manual and more options on ls use `man ls`. What changes when you type ls -lh?*
+
+More things:
+```bash
+# Let's create a folder for this tutorial
+mkdir bip
+
+# Let's go to this folder
+cd bip
+
+# Print pathway to the folder
+pwd
+
+# Go back to the home directory
+cd
+```
+
+What do you have in the folder? How do you check?
+
+**Running a script**
+We have prepared some files to practice with and a small script that links these files to your home directory.
+
+```bash
+# go to home directory and "bip" folder
+cd ~/bip
+
+# copy setup.sh script
+cp /sw/share/compstore/courses/bip/hands-on/Scripts/setup.sh .
+
+# run script
+bash setup.sh
+
+# check content of the "bip" folder
+ls -lh
+
+# check content of the "bip/DATA"
+ls -lsh DATA
+```
+
+**Looking into files**
+`head`, `tail` and `less` command come handy when looking into files
+
+```bash
+
+# navigate to DATA directory
+cd ~/bip/DATA
+
+# output the first 10 lines of the .fastq file
+head -n 10 P12516_101_R1.sample.fastq
+
+# output the last 20 lines fo the .fastq file
+tail -n 20 P12516_101_R1.sample.fastq
+
+# preview .bed files
+less CGATGG.bed
+
+# while previewing the file type search for entries with chr11
+./chr11
+```
+
+**Data size**
+```bash
+
+# Naviagate to "bip" folder
+cd ~/bip
+
+# estimate file space usage
+du -h DATA/
+```
 
 ### Cloning Github repository
-The course website is hosted under: https://nbisweden.github.io/workshop-bioinformatics-for-PIs/.
+The course website is hosted under: [https://nbisweden.github.io/workshop-bioinformatics-for-PIs/](https://nbisweden.github.io/workshop-bioinformatics-for-PIs/). Have you noticed "github" part in the address? In fact, in the background we have prepared and submitted all the materials for this course to a Github repository. Github, apart from hosting and tracking code, offers rendering options to a project website, like the one above. The course Github repository is here: https://github.com/NBISweden/workshop-bioinformatics-for-PIs. Have a look at it? Does it look familiar to the website?
 
-Have you noticed "github" part in the address? In fact, in the background we have prepared and submitted all the materials for this course to a Github repository. Github, apart from hosting and tracking code, offers rendering options to a project website, like the one above.
-
-This repository is here: https://github.com/NBISweden/workshop-bioinformatics-for-PIs. Have a look at it? Does it look familiar to the website?
-
-To download the repository, one could use `Download Zip` button. The repository downloads as a plain folder then, one can access materials but changes cannot be tracked.
-
-To work reproducibly with the code, keeping track of the changes, one would instead
+To download the repository, one could use `Download Zip` button. The repository downloads as a plain folder then, one can access materials but changes cannot be tracked. To work reproducibly and collaboratively with the code, keeping track of the changes, one would instead
 1. clone the repository to a local computer
 2. checkout a working branch to work on
 3. while working modify and/or add code to the working branch
@@ -31,8 +142,8 @@ To work reproducibly with the code, keeping track of the changes, one would inst
 5. push the branch to the Github repository
 6. on Github, one would make a `Pull request` to merge changes from the working branch to the master branch.
 
-###### To try it out
-Go to Github and create an account.
+##### To try it out
+Go to [https://github.com](https://github.com) and create an account.
 
 ```bash
 
@@ -58,16 +169,25 @@ git commit -m "Initiate file-olga.txt"
 git push --set-upstream origin unix
 
 ```
-Now you can go to https://github.com/NBISweden/workshop-bioinformatics-for-PIs.git and make click on a `New pull request`. Your collaborators can view the changes, ask for modifications, or incorporate the changes under the master project branch.
+Now you can go to https://github.com/NBISweden/workshop-bioinformatics-for-PIs.git and  click on a `New pull request`. Your collaborators can view the changes, ask for modifications, or incorporate the changes under the master project branch.
 
+P.S. The above will also work on a local computer with .git installed
 
+Read and practice more: [https://coderefinery.github.io/git-intro/](https://coderefinery.github.io/git-intro/)
+
+Unix/Bash cheat sheet
+- [https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf](https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf)
+
+To read more:
+- [https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf](https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf)
+
+To practice more:
+- [https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro](https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro)
 
 
 ### Data transfer via `scp`  
 
-### Data transfer via `stpf`
-
-### Bioinformatics tools
+### Bioinformatics tools: RNA-seq workflow
 
 
 
