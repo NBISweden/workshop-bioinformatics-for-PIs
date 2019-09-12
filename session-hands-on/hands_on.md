@@ -5,9 +5,9 @@ title:  'Hands-on Exercise'
 
 
 # Preparing a working directory
-To get going, let's book a node, create a working directory named with your Uppmax user name *<username>* in the `/proj/g2019018/nobackup/` directory.
+To get going, let's book a node, create a working directory named with your Uppmax user name <username> in the */proj/g2019018/nobackup/* directory.
    
- NB! Remember to replace *<username>* with your uppmax id throughout the exercise.
+ NB! Remember to replace <username> with your Uppmax id throughout the exercise.
 
 :computer: **Book a node.** We have reserved half a node per person. 
 Please book a node only once, as otherwise you'll be taking resources from your fellow course participants.
