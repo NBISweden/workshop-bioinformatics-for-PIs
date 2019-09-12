@@ -34,12 +34,32 @@ To work reproducibly with the code, keeping track of the changes, one would inst
 ###### To try it out
 Go to Github and create an account.
 
-{% highlight bash %}
+```bash
 
+# clone repository
 git clone https://github.com/NBISweden/workshop-bioinformatics-for-PIs.git
 
+# checkout out working branch, e.g. feature-olga
+git checkout -b feature-olga
 
-{% endhighlight %}
+# navigate into the repo and to session-git folder
+cd /workshop-bioinformatics-for-PIs/session-git
+
+# create a file with your contribution e.g.
+echo "Olga's contribution" > file-olga.txt
+
+# add file
+git add file-olga.txt
+
+# commit changes
+git commit -m "Initiate file-olga.txt"
+
+# push changes
+git push --set-upstream origin unix
+
+```
+Now you can go to https://github.com/NBISweden/workshop-bioinformatics-for-PIs.git and make click on a `New pull request`. Your collaborators can view the changes, ask for modifications, or incorporate the changes under the master project branch.
+
 
 
 
