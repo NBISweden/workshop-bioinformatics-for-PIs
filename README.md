@@ -35,9 +35,9 @@ After this course you should be able to:
 - Support the development of bioinformatics skills within your team
 
 
-### Preliminary schedule
+### Schedule
 
-A preliminary schedule is accessible here: [schedule.md](schedule.md)
+A schedule is accessible here: [schedule.md](schedule.md)
 
 
 ## Entry requirements
