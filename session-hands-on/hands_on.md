@@ -46,11 +46,11 @@ jobinfo -u <username>
 
 In the following example ** is the node booked:
 
-```
+{% highlight bash %}
 Waiting jobs:
    JOBID    POS PARTITION                      NAME     USER        ACCOUNT ST          START_TIME   TIME_LEFT PRIORITY CPUS NODELIST(REASON)     FEATURES DEPENDENCY
-10033342    548      core              _interactive    agata       g2019018 PD 2019-09-12T17:11:14    10:00:00   152631    1      (Resources)       (null) 
-
+10033342    548      core              interactive    agata       g2019018 PD 2019-09-12T17:11:14    10:00:00   152631    1      (Resources)       (null) 
+{% endhighlight %}
 
 
 Connect to your node:
