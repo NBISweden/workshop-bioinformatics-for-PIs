@@ -7,7 +7,7 @@ header-includes:
 
 # Welcome - Practical things first
 
-- **Internet** (WiFi: Eduroam, KI, SciLifeLab, *KISP-GuestNet*: `S0mmartid2013`)
+- **Internet** (WiFi: Eduroam, KI, SciLifeLab, *KISP-GuestNet*)
 - **Lunch**: Nanna Schwartz (walking distance)
 - **Dinner** (Tuesday  ~18): Grappa Bar (S:t Eriksgatan 86, also walking distance)
 
