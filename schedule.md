@@ -11,7 +11,7 @@ Room: Air and Fire (ground floor)
 |11:15|12:00|[Interdisciplinary collaboration](session-collaboration/) (Olga Dethlefsen, Johan Nylander)|
 |12:00|13:00|*Lunch*|
 |13:00|14:00|[Bioinformatics work-flows](session-workflows/) (Agata Smialowska, Johan Nylander, Olga Dethlefsen)|
-|14:00|17:00|[Getting bioinformatics done: hands-on](session-hands-on/hands_on) (Agata Smialowska, Olga Dethlefsen, Johan Nylander)|
+|14:00|17:00|[Getting bioinformatics done: hands-on](session-hands-on/hands-on) (Agata Smialowska, Olga Dethlefsen, Johan Nylander)|
 |18:00|Late|*Dinner*|
 
 ##### Day 2: Wednesday 2019-09-18
