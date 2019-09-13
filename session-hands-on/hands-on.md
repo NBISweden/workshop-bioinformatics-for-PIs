@@ -14,7 +14,7 @@ This tutorial will take you through a basic hands-on skills to be able to:
 ### Basic unix commands
 We will practice on Rackham, Uppmax.
 
-** Logging in**
+**Logging in**
 ```bash
 ssh -Y username@rackham.uppmax.uu.se
 ```
@@ -183,9 +183,10 @@ du -ah
 
 ```
 
-- To read more: [https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf](https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf)
-- Useful to have: [https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf](https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf)
-- To practice more: [https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro](https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro)
+<br/>
+ - To read more: [https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf](https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf)
+ - Useful to have: [https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf](https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf)
+ - To practice more: [https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro](https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro)
 
 ### Cloning Github repository
 The course website is hosted under: [https://nbisweden.github.io/workshop-bioinformatics-for-PIs/](https://nbisweden.github.io/workshop-bioinformatics-for-PIs/). Have you noticed "github" part in the address? In fact, in the background we have prepared and submitted all the materials for this course to a Github repository. Github, apart from hosting and tracking code, offers rendering options to a project website, like the one above. The course Github repository is here: [https://github.com/NBISweden/workshop-bioinformatics-for-PIs](https://github.com/NBISweden/workshop-bioinformatics-for-PIs). Have a look at it? Does it look familiar to the website?
@@ -229,7 +230,8 @@ Now you can go to https://github.com/NBISweden/workshop-bioinformatics-for-PIs.g
 
 P.S. The above will also work on a local computer with .git installed
 
-- Read more: [https://coderefinery.github.io/git-intro/](https://coderefinery.github.io/git-intro/)
+<br/>
+-  Read more: [https://coderefinery.github.io/git-intro/](https://coderefinery.github.io/git-intro/)
 
 
 ### Data transfer via `scp`  
@@ -237,7 +239,7 @@ P.S. The above will also work on a local computer with .git installed
 
 ### Bioinformatics tools: RNA-seq workflow
 
-#### Preparing a working directory
+##### Preparing a working directory
 To get going, let's book a node, create a working directory named with your Uppmax user name `<username>` in the `/proj/g2019018/nobackup/` directory.
 
  NB! Remember to replace `<username>` with your Uppmax id throughout the exercise.
@@ -275,7 +277,7 @@ Connect to your node:
 ssh <node>
 {% endhighlight %}
 
-# <a name="begin"></a> RNA-seq data processing and QC tutorial
+### <a name="begin"></a> RNA-seq data processing and QC tutorial
 RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. In this short introductory exercise we will present a workflow for QC and processing data from an RNA-seq experiment.
 
 * Briefly we will,
@@ -325,7 +327,7 @@ SRR3222409_2.fastq.gz -> /sw/courses/ngsintro/rnaseq/main/SRR3222409_2.fastq.gz
 [Jump to the top](#begin)
 
 
-## <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
+##### <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
 After receiving raw reads from a high throughput sequencing centre it is essential to check their quality. Why waste your time on data analyses of the poor quality data? Also, more importently, being aware of any quality pitfalls allows for adapting a filtering and preprocessing strategy.
 FastQC provide a simple way to do some quality control check on raw sequence data. It provides a modular set of analyses which you can use to get a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
 
