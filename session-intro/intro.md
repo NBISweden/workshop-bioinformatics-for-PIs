@@ -5,6 +5,14 @@ header-includes:
 - \titlegraphic{\includegraphics[height=1cm]{img/nbislogo-green-txt.jpg}\hspace*{4.5cm}~\includegraphics[height=1cm]{img/scilifelab_logo-green.jpg}}
 ---
 
+---
+
+# Welcome!
+
+![](img/teachers.png)
+
+---
+
 # Welcome - Practical things first
 
 - **Internet** (WiFi: Eduroam, KI, SciLifeLab, *KISP-GuestNet*)
