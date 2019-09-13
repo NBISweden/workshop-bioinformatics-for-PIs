@@ -6,15 +6,15 @@ title:  'Hands-on Exercise'
 ## Introduction
 This tutorial will take you through a basic hands-on skills to be able to:
 
-- navigate in unix environment & preview folders and files
-- clone Github repository
-- transfer data via `scp` between Uppmax and a local computer
-- run basic bioinformatics tools to assess quality of the NGS data
+1. navigate in unix environment & preview folders and files
+2. transfer data via `scp` between Uppmax and a local computer
+3. run basic bioinformatics tools to assess quality of the NGS data
+4. clone Github repository
 
 ### Basic unix commands
 We will practice on Rackham, Uppmax.
 
-**Logging in**
+** Logging in**
 ```bash
 ssh -Y username@rackham.uppmax.uu.se
 ```
@@ -36,12 +36,29 @@ _   _ ____  ____  __  __    _    __  __
 ```
 
 **Moving and looking around**
+
 When you connect to UPPMAX, you will start out in your home folder. The absolute path to your home folder is usually **/home/\<username\>**
 
-`ls`, Have a look what you have in your home folder. The command for this `ls`, and it stands for **L**i**S**t (list).
+`pwd` command, to see where you are use `pwd` command, abbreviation for **p**rint **w**orking **d**irectory
+```bash
+pwd
+```
+This is what I see
+```bash
+[olga@rackham1 ~]$ pwd
+/home/olga
+```
+
+
+`ls` command, to list directory content, abbreviation for **l**i**s**t.
 
 ```bash
-$ ls -l
+ls
+
+# ls with some options, indicated by a hyphen
+ls -l
+ls -l -h
+ls -lh
 ```
 
 You should have something similar to:
@@ -61,26 +78,45 @@ drwxrwxr-x 7 olga olga    4096 Aug  9 16:32 tools
 drwxrwxr-x 4 olga olga    4096 Jan 27  2019 transfer-mast
 ```
 
-*Note, -l is an option. For manual and more options on ls use `man ls`. What changes when you type ls -lh?*
-
-More things:
+`man` command. In the above examples, as you may have noticed, -l or -h is an option of the command `ls` that alters its default behaviour. To read about a command and available options we use another command `man`, abbreviation for **man**ual
 ```bash
-# Let's create a folder for this tutorial
+# manual for ls
+man ls
+
+# manual for pwd
+man pwd
+
+# manual of the manual
+man man
+
+```
+
+
+More basic commands:
+```bash
+# Let's create a folder for this tutorial (mkdir, from make directories)
 mkdir bip
 
-# Let's go to this folder
+# Let's navigate to this folder (cd, from change directory)
 cd bip
 
 # Print pathway to the folder
 pwd
 
-# Go back to the home directory
+# Go back to the home directory (cd with no options)
 cd
+
+# Go back to bip using pull pathway
+cd /home/username/bip
+
+# Go back to home directory using pull pathway
+cd /home/username/
 ```
 
-What do you have in the folder? How do you check?
+What do you have in the folder? How do you check again?
 
 **Running a script**
+
 We have prepared some files to practice with and a small script that links these files to your home directory.
 
 ```bash
@@ -88,25 +124,26 @@ We have prepared some files to practice with and a small script that links these
 cd ~/bip
 
 # copy setup.sh script
-cp /sw/share/compstore/courses/bip/hands-on/Scripts/setup.sh .
+cp /sw/share/compstore/courses/bip/hands-on/scripts/setup.sh .
 
 # run script
-bash setup.sh
+./setup.sh
 
 # check content of the "bip" folder
 ls -lh
 
-# check content of the "bip/DATA"
-ls -lsh DATA
+# check content of the "bip/data"
+ls -lsh data
 ```
 
 **Looking into files**
+
 `head`, `tail` and `less` command come handy when looking into files
 
 ```bash
 
-# navigate to DATA directory
-cd ~/bip/DATA
+# navigate to data directory
+cd ~/bip/data
 
 # output the first 10 lines of the .fastq file
 head -n 10 P12516_101_R1.sample.fastq
@@ -117,8 +154,17 @@ tail -n 20 P12516_101_R1.sample.fastq
 # preview .bed files
 less CGATGG.bed
 
-# while previewing the file type search for entries with chr11
+# while previewing the CGATG.bed file type search for entries with chr11
 ./chr11
+
+# have a look at microRNA annotations file
+less hsa.gff3
+
+# can you find "hsa-miR-608"?
+./hsa-miR-608
+
+# what happens when you use grep command?
+grep hsa-miR-608 hsa.gff3
 ```
 
 **Data size**
@@ -128,11 +174,21 @@ less CGATGG.bed
 cd ~/bip
 
 # estimate file space usage
-du -h DATA/
+du DATA/
+
+# try some useful du options
+du -a
+du -h
+du -ah
+
 ```
 
+- To read more: [https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf](https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf)
+- Useful to have: [https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf](https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf)
+- To practice more: [https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro](https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro)
+
 ### Cloning Github repository
-The course website is hosted under: [https://nbisweden.github.io/workshop-bioinformatics-for-PIs/](https://nbisweden.github.io/workshop-bioinformatics-for-PIs/). Have you noticed "github" part in the address? In fact, in the background we have prepared and submitted all the materials for this course to a Github repository. Github, apart from hosting and tracking code, offers rendering options to a project website, like the one above. The course Github repository is here: https://github.com/NBISweden/workshop-bioinformatics-for-PIs. Have a look at it? Does it look familiar to the website?
+The course website is hosted under: [https://nbisweden.github.io/workshop-bioinformatics-for-PIs/](https://nbisweden.github.io/workshop-bioinformatics-for-PIs/). Have you noticed "github" part in the address? In fact, in the background we have prepared and submitted all the materials for this course to a Github repository. Github, apart from hosting and tracking code, offers rendering options to a project website, like the one above. The course Github repository is here: [https://github.com/NBISweden/workshop-bioinformatics-for-PIs](https://github.com/NBISweden/workshop-bioinformatics-for-PIs). Have a look at it? Does it look familiar to the website?
 
 To download the repository, one could use `Download Zip` button. The repository downloads as a plain folder then, one can access materials but changes cannot be tracked. To work reproducibly and collaboratively with the code, keeping track of the changes, one would instead
 1. clone the repository to a local computer
@@ -173,23 +229,13 @@ Now you can go to https://github.com/NBISweden/workshop-bioinformatics-for-PIs.g
 
 P.S. The above will also work on a local computer with .git installed
 
-Read and practice more: [https://coderefinery.github.io/git-intro/](https://coderefinery.github.io/git-intro/)
-
-Unix/Bash cheat sheet
-- [https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf](https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf)
-
-To read more:
-- [https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf](https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf)
-
-To practice more:
-- [https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro](https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro)
+- Read more: [https://coderefinery.github.io/git-intro/](https://coderefinery.github.io/git-intro/)
 
 
 ### Data transfer via `scp`  
 
+
 ### Bioinformatics tools: RNA-seq workflow
-
-
 
 #### Preparing a working directory
 To get going, let's book a node, create a working directory named with your Uppmax user name `<username>` in the `/proj/g2019018/nobackup/` directory.
