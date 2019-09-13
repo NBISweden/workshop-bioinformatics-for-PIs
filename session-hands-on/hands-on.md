@@ -11,7 +11,7 @@ This tutorial will take you through a basic hands-on skills to be able to:
 3. run basic bioinformatics tools to assess quality of the NGS data
 4. clone Github repository
 
-### Basic unix commands
+## Basic unix commands
 We will practice on Rackham, Uppmax.
 
 **Logging in**
@@ -183,12 +183,28 @@ du -ah
 
 ```
 
-<br/>
- - To read more: [https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf](https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf)
- - Useful to have: [https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf](https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf)
- - To practice more: [https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro](https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro)
+-  * To read more: [https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf](https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf)
+- * Useful to have: [https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf](https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf)
+- * To practice more: [https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro](https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro)
 
-### Cloning Github repository
+## Data transfer via `scp`  
+`scp`, secure copy is used to copy files between hosts on a network
+
+To try it out, open in parallel a terminal window on your local computer and Uppmax terminal
+
+```bash
+# to transfer a file from Rackham to local current directory (denoted by a dot)
+scp <userame>@rackham.uppmax.uu.se:/home/<username>/bip/data/example.bed  .
+
+# to transfer files from Rackham to local current directory (denoted by a dot)
+scp -r <userame>@rackham.uppmax.uu.se:/home/<username>/bip/data .
+
+# to transfer files in data directory from local to Rackham home directory
+scp -r data/ <username>@rackham.uppmax.uu.se:/<username>/olga
+
+```
+
+## Cloning Github repository
 The course website is hosted under: [https://nbisweden.github.io/workshop-bioinformatics-for-PIs/](https://nbisweden.github.io/workshop-bioinformatics-for-PIs/). Have you noticed "github" part in the address? In fact, in the background we have prepared and submitted all the materials for this course to a Github repository. Github, apart from hosting and tracking code, offers rendering options to a project website, like the one above. The course Github repository is here: [https://github.com/NBISweden/workshop-bioinformatics-for-PIs](https://github.com/NBISweden/workshop-bioinformatics-for-PIs). Have a look at it? Does it look familiar to the website?
 
 To download the repository, one could use `Download Zip` button. The repository downloads as a plain folder then, one can access materials but changes cannot be tracked. To work reproducibly and collaboratively with the code, keeping track of the changes, one would instead
@@ -230,14 +246,11 @@ Now you can go to https://github.com/NBISweden/workshop-bioinformatics-for-PIs.g
 
 P.S. The above will also work on a local computer with .git installed
 
-<br/>
--  Read more: [https://coderefinery.github.io/git-intro/](https://coderefinery.github.io/git-intro/)
+- * Read more: [https://coderefinery.github.io/git-intro/](https://coderefinery.github.io/git-intro/)
 
 
-### Data transfer via `scp`  
 
-
-### Bioinformatics tools: RNA-seq workflow
+## Bioinformatics tools: RNA-seq workflow
 
 ##### Preparing a working directory
 To get going, let's book a node, create a working directory named with your Uppmax user name `<username>` in the `/proj/g2019018/nobackup/` directory.
