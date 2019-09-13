@@ -112,7 +112,7 @@ Anyone else who wants to share?
 
 . . .
 
-- Individual with a superior understanding of biology, computer science, and the latest trends in analyzing big data
+- Individual with a superior understanding of **biology**, **computer science**, and the latest trends in analyzing big data
 
 . . .
 
@@ -219,8 +219,8 @@ Anyone else who wants to share?
 
 # What Other's Need Bioinformaticians to Be
 
-- A Bachelor's degree in life sciences or computational sciences is required, although a MSc or PhD is preferred.
-- Master's degree in Computer Science or Bioinformatics or a related computational discipline, or equivalent experience
+- A Bachelor's degree in **life sciences** or **computational sciences** is required, although a MSc or PhD is preferred.
+- Master's degree in Computer Science or **Bioinformatics** or a related computational discipline, or equivalent experience
 - PhD or MSc in Bioinformatics, Computer Science, Computational Biology, Electrical Engineering/Signal processing or a related field with > 1 years' experience
 
 
