@@ -5,11 +5,13 @@ header-includes:
 - \titlegraphic{\includegraphics[height=1cm]{img/nbislogo-green-txt.jpg}\hspace*{4.5cm}~\includegraphics[height=1cm]{img/scilifelab_logo-green.jpg}}
 ---
 
+
 ---
 
 # Welcome!
 
 ![](img/teachers.png)
+
 
 ---
 
@@ -20,6 +22,7 @@ header-includes:
 - **Dinner** (Tuesday  ~18): Grappa Bar (S:t Eriksgatan 86, also walking distance)
 
 - **Course web page**: <https://nbisweden.github.io/workshop-bioinformatics-for-PIs>
+
 
 ---
 
@@ -32,6 +35,14 @@ After this course you should be able to:
 - Develop appropriate plans for the management and sharing of data
 - Support the development of bioinformatics skills within your team
 
+
+---
+
+# Expectations
+
+> Opportunity to meet other PIs to share experiences
+
+
 ---
 
 # Outline Day 1 (Tuesday, 09:30 ~ 17:00)
@@ -39,6 +50,7 @@ After this course you should be able to:
 - Bioinformatics and Bioinformaticians - What is it, and What do they do?
 - Getting Bioinformatics done - Collaboration and Collaborators
 - Getting Bioinformatics done - Examples
+
 
 ---
 
@@ -48,6 +60,7 @@ After this course you should be able to:
 - Data Generation
 - Computational Resources
 
+
 ---
 
 # Feedback and Disclaimer
@@ -55,6 +68,4 @@ After this course you should be able to:
 - We would welcome feedback during and after the course
 
 - This is a new course (you are the crash-test dummies)
-
-
 
