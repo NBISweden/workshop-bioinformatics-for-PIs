@@ -86,7 +86,7 @@ man ls
 # manual for pwd
 man pwd
 
-# manual of the manual
+# manual for man
 man man
 
 ```
@@ -170,7 +170,7 @@ grep hsa-miR-608 hsa.gff3
 **Data size**
 ```bash
 
-# Naviagate to "bip" folder
+# Navigate to "bip" folder
 cd ~/bip
 
 # estimate file space usage
@@ -187,7 +187,7 @@ du -ah
 - * Useful to have: [https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf](https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf)
 - * To practice more: [https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro](https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro)
 
-## Data transfer via `scp`  
+## Data transfer
 `scp`, secure copy is used to copy files between hosts on a network
 
 To try it out, open in parallel a terminal window on your local computer and Uppmax terminal
@@ -250,7 +250,7 @@ P.S. The above will also work on a local computer with .git installed
 
 
 
-## Bioinformatics tools: RNA-seq workflow
+## <a name="begin"></a> Bioinformatics tools: RNA-seq data processing and QC tutorial
 
 ##### Preparing a working directory
 To get going, let's book a node, create a working directory named with your Uppmax user name `<username>` in the `/proj/g2019018/nobackup/` directory.
@@ -290,7 +290,7 @@ Connect to your node:
 ssh <node>
 {% endhighlight %}
 
-### <a name="begin"></a> RNA-seq data processing and QC tutorial
+
 RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. In this short introductory exercise we will present a workflow for QC and processing data from an RNA-seq experiment.
 
 * Briefly we will,
