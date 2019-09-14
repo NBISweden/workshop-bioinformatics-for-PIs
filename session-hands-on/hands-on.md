@@ -429,7 +429,7 @@ tail -n 10 header.txt
 ```bash
 samtools view -hbo SRR3222409.bam SRR3222409_Aligned.out.sam
 ```
-:computer: **Sort** the alignments by the _starting position_ of the more 5´ read:
+:computer: **Sort** the alignments by the _starting position_ of each read:
 
 ```bash
 samtools sort -T tmpdir -o SRR3222409.sorted.bam SRR3222409.bam
@@ -478,6 +478,9 @@ lrwxrwxrwx 1 agata g2019018        52 Sep 14 15:20 SRR3222412Log.final.out -> /p
 ```
 
 
+
+
+:computer: **Sort** the alignments by the _starting position_ of each read:
 
 ```bash
 
