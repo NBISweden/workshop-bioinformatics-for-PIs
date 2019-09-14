@@ -323,7 +323,7 @@ ln -s /sw/courses/ngsintro/rnaseq/main/SRR3222409_1.fastq.gz
 ```
 
 
-:white_check_mark: **Check** if you linked the files correctly. You now should be able to see 2 links to the .fastq.gz files.
+:white_check_mark: **Check** if you linked the files correctly. You now should be able to see 2 links to the .fastq.gz files. (scroll right)
 ```bash
 ll
 
@@ -387,12 +387,118 @@ total 501
 scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcriptome/fastqc/*html .
 ```
 
-:open_mouth: Discuss whether you'd be happy when receiving this very data from the sequencing facility.
+:open_mouth: Discuss whether you'd be satisfied receiving these data from a sequencing facility.
 <br />
 <br />
 [Jump to the top](#begin)
 
 
+##### <a name="samtools"></a> Conversions of bam files
+
+In this exercise we skip the read mapping step in the interest of time. We will perform some useful manipulations on alignment files.
+
+:computer: **Create** new folder in your working directory and link a file with read alignments in a frequently used human-readable format `sam`:
+
+```bash
+mkdir /proj/g2019018/nobackup/<username>/transcriptome/bam
+cd /proj/g2019018/nobackup/<username>/transcriptome/bam
+
+ln -s /proj/g2019018/nobackup/data/SRR3222409_Aligned.out.sam
+```
+
+To inspect the contents of a `sam` file type:
+
+```bash
+head SRR3222409_Aligned.out.sam
+```
+
+You can see the first lines of the header - information on sequences in the reference used for read mapping followed by information appended by software that produced and modified the file. You can view the entire header using `samtools`, a collection of utilities for processing `sam` / `bam` format:
+
+```
+samtools view -H SRR3222409_Aligned.out.sam > header.txt
+
+head header.txt
+tail -n 10 header.txt
+```
+:mag: To find out more about `sam` / `bam` format and `samtools` check their respective documentation:
+[samtools](http://www.htslib.org/doc/samtools.html)
+[FastQC](https://samtools.github.io/hts-specs/SAMv1.pdf)
+
+:computer: **Convert between sam and bam** formats:
+
+```bash
+samtools view -hbo SRR3222409.bam SRR3222409_Aligned.out.sam
+```
+:computer: **Sort** the alignments by the _starting position_ of the more 5´ read:
+
+```bash
+samtools sort -T tmpdir -o SRR3222409.sorted.bam SRR3222409.bam
+```
+:computer: Finally, **index** the `bam` file. This is necessary for many downstream applications.
+
+```bash
+samtools index SRR3222409.sorted.bam
+```
+
+You can check the contents of the directory using `ll`:
+
+```bash
+total 1051316
+lrwxrwxrwx 1 agata g2019018        55 Sep 14 15:03 SRR3222409_Aligned.out.sam -> /proj/g2019018/nobackup/data/SRR3222409_Aligned.out.sam
+-rw-rw-r-- 1 agata g2019018 537824395 Sep 14 15:11 SRR3222409.bam
+-rw-rw-r-- 1 agata g2019018 536868854 Sep 14 15:17 SRR3222409.sorted.bam
+-rw-rw-r-- 1 agata g2019018   1839552 Sep 14 15:17 SRR3222409.sorted.bam.bai
+```
+
+We will link more bam files and their mapping logs required in further steps:
+
+```bash
+ln -s /proj/g2019018/nobackup/data/SRR3222412.bam
+ln -s /proj/g2019018/nobackup/data/SRR3222412.bam.bai
+
+
+for i in /proj/g2019018/nobackup/data/*Log.final.out
+do
+ln -s $i 
+done
+```
+
+The `transcriptome/bam` directory should look like this:
+
+
+```bash
+lrwxrwxrwx 1 agata g2019018        55 Sep 14 15:03 SRR3222409_Aligned.out.sam -> /proj/g2019018/nobackup/data/SRR3222409_Aligned.out.sam
+-rw-rw-r-- 1 agata g2019018 537824395 Sep 14 15:11 SRR3222409.bam
+lrwxrwxrwx 1 agata g2019018        52 Sep 14 15:20 SRR3222409Log.final.out -> /proj/g2019018/nobackup/data/SRR3222409Log.final.out
+-rw-rw-r-- 1 agata g2019018 536868854 Sep 14 15:17 SRR3222409.sorted.bam
+-rw-rw-r-- 1 agata g2019018   1839552 Sep 14 15:17 SRR3222409.sorted.bam.bai
+lrwxrwxrwx 1 agata g2019018        43 Sep 14 15:19 SRR3222412.bam -> /proj/g2019018/nobackup/data/SRR3222412.bam
+lrwxrwxrwx 1 agata g2019018        47 Sep 14 15:19 SRR3222412.bam.bai -> /proj/g2019018/nobackup/data/SRR3222412.bam.bai
+lrwxrwxrwx 1 agata g2019018        52 Sep 14 15:20 SRR3222412Log.final.out -> /proj/g2019018/nobackup/data/SRR3222412Log.final.out
+```
 
 
 
+```bash
+
+```
+
+
+```bash
+
+```
+
+
+```bash
+
+```
+
+
+```bash
+
+```
+
+
+```bash
+
+```
