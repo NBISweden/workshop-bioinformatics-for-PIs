@@ -253,26 +253,22 @@ P.S. The above will also work on a local computer with .git installed
 ## <a name="begin"></a> Bioinformatics tools: RNA-seq data processing and QC tutorial
 
 ##### Preparing a working directory
-To get going, let's book a node, create a working directory named with your Uppmax user name `<username>` in the `/proj/g2019018/nobackup/` directory.
+To get going, let's book a node and create a working directory named with your Uppmax user name `<username>` in the `/proj/g2019018/nobackup/` directory.
 
  NB! Remember to replace `<username>` with your Uppmax id throughout the exercise.
 
 :computer: **Book a node.** We have reserved half a node per person.
 Please book a node only once, as otherwise you'll be taking resources from your fellow course participants.
 
-<details>
-<summary>:key: Click to see how to book a node</summary>
-{% highlight bash %}
+```
 salloc -A g2019018 -t 03:30:00 -p core -n 10 --no-shell --reservation=g2019018_1
-{% endhighlight %}
-</details>  
-<br />
+```
 
 Now you can check which node you have booked:
 
-{% highlight bash %}
+```
 jobinfo -u <username>
-{% endhighlight %}
+```
 
 In the following example *r278* is the node booked (scroll right):
 
@@ -286,9 +282,9 @@ Running jobs:
 
 Connect to your node:
 
-{% highlight bash %}
+```
 ssh <node>
-{% endhighlight %}
+```
 
 
 RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. In this short introductory exercise we will present a workflow for QC and processing data from an RNA-seq experiment.
