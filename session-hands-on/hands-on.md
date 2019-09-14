@@ -183,9 +183,9 @@ du -ah
 
 ```
 
--  * To read more: [https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf](https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf)
-- * Useful to have: [https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf](https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf)
-- * To practice more: [https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro](https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro)
+* To read more: [https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf](https://scilifelab.github.io/courses/ngsintro/1905/slides/linux-tutorial.pdf)
+* Useful to have: [https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf](https://scilifelab.github.io/courses/ngsintro/common/files/Bash_cheat_sheet_level1.pdf)
+* To practice more: [https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro](https://scilifelab.github.io/courses/ngsintro/1905/labs/linux-intro)
 
 ## Data transfer
 `scp`, secure copy is used to copy files between hosts on a network
@@ -246,7 +246,7 @@ Now you can go to https://github.com/NBISweden/workshop-bioinformatics-for-PIs.g
 
 P.S. The above will also work on a local computer with .git installed
 
-- * Read more: [https://coderefinery.github.io/git-intro/](https://coderefinery.github.io/git-intro/)
+* Read more: [https://coderefinery.github.io/git-intro/](https://coderefinery.github.io/git-intro/)
 
 
 
@@ -272,12 +272,12 @@ jobinfo -u <username>
 
 In the following example *r278* is the node booked (scroll right):
 
-{% highlight bash %}
+```
 CLUSTER: rackham
 Running jobs:
    JOBID PARTITION                      NAME     USER        ACCOUNT ST          START_TIME  TIME_LEFT  NODES CPUS NODELIST(REASON)
 10033342      core              interactive    agata       g2019018  R 2019-09-12T11:41:13    9:58:24      1    1 r278
-{% endhighlight %}
+```
 
 
 Connect to your node:
@@ -289,12 +289,12 @@ ssh <node>
 
 RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. In this short introductory exercise we will present a workflow for QC and processing data from an RNA-seq experiment.
 
-* Briefly we will,
+Briefly we will,
 
   * check the quality of the raw reads with [FastQC](#fastqc)
-  * map the reads to the reference genome using [Star](#star)
   * convert between SAM and BAM files format using [Samtools](#samtools)
   * assess the post-alignment reads quality using [QualiMap](#qualimap)
+  * aggregate different reports using [MultiQC](#multiqc)
   * view RNA-seq bam files in a genome browser [IGV](#igv)
 
 ##### Data description
@@ -310,26 +310,27 @@ For the purpose of this tutorial, that is to shorten the time needed to run vari
 
 First, create the new working directory and link the raw data `fastq.gz` files.
 
-/proj/g2019018/nobackup/<username>/transcriptome/DATA/
 
-{% highlight bash %}
+```
 cd /proj/g2019018/nobackup/<username>/
 mkdir -p transcriptome/DATA
 
 cd transcriptome/DATA
 
+ln -s /proj/g2019018/nobackup/data/SRR3222409_1.fastq.gz
+ln -s /proj/g2019018/nobackup/data/SRR3222409_2.fastq.gz
 ln -s /sw/courses/ngsintro/rnaseq/main/SRR3222409_1.fastq.gz
-ln -s /sw/courses/ngsintro/rnaseq/main/SRR3222409_2.fastq.gz
-{% endhighlight %}
+```
 
 
 :white_check_mark: **Check** if you linked the files correctly. You now should be able to see 2 links to the .fastq.gz files.
-{% highlight bash %}
+```bash
 ll
 
-SRR3222409_1.fastq.gz -> /sw/courses/ngsintro/rnaseq/main/SRR3222409_1.fastq.gz
-SRR3222409_2.fastq.gz -> /sw/courses/ngsintro/rnaseq/main/SRR3222409_2.fastq.gz
-{% endhighlight %}
+lrwxrwxrwx 1 agata g2019018 50 Sep 14 14:59 SRR3222409_1.fastq.gz -> /proj/g2019018/nobackup/data/SRR3222409_1.fastq.gz
+lrwxrwxrwx 1 agata g2019018 50 Sep 14 14:59 SRR3222409_2.fastq.gz -> /proj/g2019018/nobackup/data/SRR3222409_2.fastq.gz
+
+```
 <br/>
 <br />
 
@@ -344,40 +345,47 @@ FastQC provide a simple way to do some quality control check on raw sequence dat
 <br />
 
 :computer: **Create** *fastqc* folder in your _transcriptome_ directory. **Navigate to _fastqc_ folder**.
-<details>
-<summary>:key: Click to see suggested commands</summary>
-{% highlight bash %}
-cd /proj/g2019018/nobackup/<username>/transcriptome
-mkdir fastqc
-cd fastqc
-{% endhighlight %}
-</details>  
+```bash
+mkdir /proj/g2019018/nobackup/<username>/transcriptome/fastqc
+cd /proj/g2019018/nobackup/<username>/transcriptome/fastqc
+``` 
 <br />
 
 :computer: **Load** _bioinfo-tools_ and _FastQC_ modules
-<details>
-<summary>:key: Click to see suggested commands</summary>
-{% highlight bash %}
+```bash
 module load bioinfo-tools
-module load FastQC/0.11.5
-{% endhighlight %}
-</details>  
+module load FastQC/0.11.8
+```
 <br />
 
-:computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: The bash loop comes handy again.
-<details>
-<summary>:key: Click to see suggested commands</summary>
-{% highlight bash %}
-for i in /proj/g2018002/nobackup/<username>/transcriptome/DATA/*
+:computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: We will use a bash loop here, but you can of course run separate commands for each file.
+
+```bash
+for i in /proj/g2019018/nobackup/<username>/transcriptome/DATA/*.fastq.gz
 do
-fastqc $i -o /proj/g2018002/nobackup/<username>/transcriptome/fastqc/
+fastqc $i -o /proj/g2019018/nobackup/<username>/transcriptome/fastqc/
 done
-{% endhighlight %}
-</details>  
+``` 
 <br />
+
+Check which files were generated in the _fastqc_ folder:
+
+```bash
+ll
+
+total 501
+-rw-rw-r-- 1 agata g2019018 241794 Sep 14 15:01 SRR3222409_1_fastqc.html
+-rw-rw-r-- 1 agata g2019018 265945 Sep 14 15:01 SRR3222409_1_fastqc.zip
+-rw-rw-r-- 1 agata g2019018 242957 Sep 14 15:02 SRR3222409_2_fastqc.html
+-rw-rw-r-- 1 agata g2019018 266255 Sep 14 15:02 SRR3222409_2_fastqc.zip
+```
 
 :mag: **Download** the FastQC for the proceeded sample from Uppmax to your compute and **have a look** at it. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.  
 <br />
+
+```bash
+scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcriptome/fastqc/*html .
+```
 
 :open_mouth: Discuss whether you'd be happy when receiving this very data from the sequencing facility.
 <br />
@@ -387,6 +395,4 @@ done
 
 
 
-{% highlight bash %}
 
-{% endhighlight %}
