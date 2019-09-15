@@ -499,21 +499,21 @@ samtools sort -n -T tmp -o SRR3222412.nsorted.bam SRR3222412.bam
 Create and navigate to appropriate output directory:
 
 ```bash
-mkdir /proj/g2019018/nobackup/agata/transcriptome/qualimap 
-cd /proj/g2019018/nobackup/agata/transcriptome/qualimap 
+mkdir /proj/g2019018/nobackup/<username>/transcriptome/qualimap 
+cd /proj/g2019018/nobackup/<username>/transcriptome/qualimap 
 module load QualiMap/2.2
 ```
 
 :computer: **Execute Qualimap** for sample `SRR3222409`:
 
 ```bash
-qualimap rnaseq -pe -bam /proj/g2019018/nobackup/agata/transcriptome/bam/SRR3222409.nsorted.bam -gtf /proj/g2019018/nobackup/data/Mus_musculus.GRCm38.85.gtf --outdir /proj/g2019018/nobackup/agata/transcriptome/qualimap/SRR3222409 --java-mem-size=63G -s > /dev/null 2>&1
+qualimap rnaseq -pe -bam /proj/g2019018/nobackup/<username>/transcriptome/bam/SRR3222409.nsorted.bam -gtf /proj/g2019018/nobackup/data/Mus_musculus.GRCm38.85.gtf --outdir /proj/g2019018/nobackup/<username>/transcriptome/qualimap/SRR3222409 --java-mem-size=63G -s > /dev/null 2>&1
 ```
 
 You can now download the results and view them locally:
 
 ```bash
-scp -r agata@rackham.uppmax.uu.se:/proj/g2019018/nobackup/agata/transcriptome/qualimap/SRR3222409 .
+scp -r <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcriptome/qualimap/SRR3222409 .
 ```
 
 
@@ -522,16 +522,27 @@ Now you can perform the same analysis for the second sample `SRR3222412`
 <details>
 <summary>:key: Click to see suggested commands</summary>
 {% highlight bash %} 
-qualimap rnaseq -pe -bam /proj/g2019018/nobackup/agata/transcriptome/bam/SRR3222412.nsorted.bam -gtf /proj/g2019018/nobackup/data/Mus_musculus.GRCm38.85.gtf --outdir /proj/g2019018/nobackup/agata/transcriptome/qualimap/SRR3222412 --java-mem-size=63G -s > /dev/null 2>&1
+qualimap rnaseq -pe -bam /proj/g2019018/nobackup/<username>/transcriptome/bam/SRR3222412.nsorted.bam -gtf /proj/g2019018/nobackup/data/Mus_musculus.GRCm38.85.gtf --outdir /proj/g2019018/nobackup/<username>/transcriptome/qualimap/SRR3222412 --java-mem-size=63G -s > /dev/null 2>&1
 {% endhighlight %} 
 </details>  
 <br />
 
+##### <a name="multiqc"></a> MultiQC: creating quality reports
 
 
+In this step we will perform aggregation of different QC metrics and application logs to create a report for the data set.
 
+Our data set in this case consists of two samples only: `SRR3222409` is the knock-down of Yap1 and Taz, and `SRR3222412` is untreated. Only one biological replicate is included here in the interest of time, the original study consisted of three biological replicates per condition.
 
 
 ```bash
+cd /proj/g2019018/nobackup/<username>/transcriptome
+module load MultiQC/1.7
+multiqc .
+```
 
+Yes, it is as simple as this! `MultiQC` searches all files in the current directory and its subdirectories and extracts information from relevant files. Its behaviour can of course be configured to suit the needs of your particular processing workflow, read more and view videos on [MultiQC homepage](https://multiqc.info).
+
+```
+scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcriptome/multiqc_report.html .
 ```
