@@ -578,23 +578,25 @@ You can now load the data: `File` > `Load from File` and select each of the samp
 
 You can navigate to a desired location by specifying its genomic coordinates or just giving a gene name. You can check for example read coverage on Yap1 (the knocked-down gene).
 
-![](figures/yap1.png){:width="400px"}
+![](figures/yap1.png){:width="700px"}
 
 Many viewing options may be adjusted in the left hand side panel:
 
-![](figures/igvmenu.png){:width="400px"}
+![](figures/igvmenu.png){:width="700px"}
 
 Just to give you a handful of locations to look at, below are top differentially expressed genes in this experiment (knock-down vs. untreated).
 
 MGI symbol | Description | logFC | FDR
 --- | --- | --- | --- |
-Klk10 | kallikrein related-peptidase 10 | 4.8679610166695 |3.84747532039414e-54 |
-Col2a1 | collagen, type II, alpha 1 | 1.90930622641741 | 2.05471727219548e-41 |
-| | | |
-| | | |
-| | | |
-| | | |
+Klk10 | kallikrein related-peptidase 10 | 4.87 |3.85e-54 |
+Col2a1 | collagen, type II, alpha 1 | 1.91 | 2.06e-41 |
+Scn7a | sodium channel, voltage-gated, type VII, alpha | -2.82 | 2.53e-41 |
+Tm7sf2 | transmembrane 7 superfamily member 2 | -2.15 | 8.97e-41 |
+Sema6d | sema domain, transmembrane domain (TM), and cytoplasmic domain, (semaphorin) 6D | -1.80 | 2.41e-37 |
+Acat2 | acetyl-Coenzyme A acetyltransferase 2 | -1.93 | 6.03e-37 |
+Frmd3 | FERM domain containing 3  | -2.36 | 1.32e-35 |
+Vat1l | vesicle amine transport protein 1 like  | -3.24 |2.03e-34 |
 
 Compare read coverage for one of the top DE genes, notice the difference in the scale in the coverage track:
 
-![](figures/scn.png){:width="400px"}
+![](figures/scn.png){:width="700px"}
