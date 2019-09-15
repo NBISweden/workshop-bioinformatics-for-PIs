@@ -563,7 +563,38 @@ statistics.
 
 You can download it from [IGV downloads page](https://software.broadinstitute.org/software/igv/download) if you haven't installed it yet. We recommend to download the newest version and use it locally rather than relying on the version installed on Uppmax.
 
-bla bla
+Our data set in this case consists of two samples only: `SRR3222409` is the knock-down of Yap1 and Taz, and `SRR3222412` is untreated. Only one biological replicate is included here in the interest of time, the original study consisted of three biological replicates per condition.
 
-![](figures/igvmenu.png){:width="70px"}
+You need to copy the `bam` and `bam.bai` files to your local computer.
 
+```bash
+scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcriptome/bam/*ba* .
+
+```
+
+First, select the correct genome in the upper left corner. `mm10` is the genome the reads were mapped to. You may need to download the genome (`Genomes` > `Load Genome from Server`).
+
+You can now load the data: `File` > `Load from File` and select each of the samples.
+
+You can navigate to a desired location by specifying its genomic coordinates or just giving a gene name. You can check for example read coverage on Yap1 (the knocked-down gene).
+
+![](figures/yap1.png){:width="400px"}
+
+Many viewing options may be adjusted in the left hand side panel:
+
+![](figures/igvmenu.png){:width="400px"}
+
+Just to give you a handful of locations to look at, below are top differentially expressed genes in this experiment (knock-down vs. untreated).
+
+MGI symbol | Description | logFC | FDR
+--- | --- | --- | --- |
+Klk10 | kallikrein related-peptidase 10 | 4.8679610166695 |3.84747532039414e-54 |
+Col2a1 | collagen, type II, alpha 1 | 1.90930622641741 | 2.05471727219548e-41 |
+| | | |
+| | | |
+| | | |
+| | | |
+
+Compare read coverage for one of the top DE genes, notice the difference in the scale in the coverage track:
+
+![](figures/scn.png){:width="400px"}
