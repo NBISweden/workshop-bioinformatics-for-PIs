@@ -358,7 +358,7 @@ module load FastQC/0.11.8
 ```
 <br />
 
-:computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: We will use a bash loop here, but you can of course run separate commands for each file.
+:computer: **Run** FastQC on all `.fastq.gz` files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: We will use a bash loop here, but you can of course run separate commands for each file.
 
 ```bash
 for i in /proj/g2019018/nobackup/<username>/transcriptome/DATA/*.fastq.gz
@@ -380,7 +380,7 @@ total 501
 -rw-rw-r-- 1 agata g2019018 266255 Sep 14 15:02 SRR3222409_2_fastqc.zip
 ```
 
-:mag: **Download** the FastQC for the proceeded sample from Uppmax to your compute and **have a look** at it. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.  
+:mag: **Download** the FastQC for the proceeded sample from Uppmax to your local computer and **have a look** at it. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.  
 <br />
 
 ```bash
@@ -395,7 +395,8 @@ scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcrip
 
 ##### <a name="samtools"></a> Conversions of bam files
 
-In this exercise we skip the read mapping step in the interest of time. We will perform some useful manipulations on alignment files.
+In this exercise we skip the read mapping step in the interest of time. The reads were mapped to the mouse reference genome `GRCm38` from Ensembl, which correspnds to `mm10` in the UCSC notation. The aligner used was `STAR`, version 2.7.0e [link to the current version](https://github.com/alexdobin/STAR).
+We will perform some useful manipulations on alignment files.
 
 :computer: **Create** new folder in your working directory and link a file with read alignments in a frequently used human-readable format `sam`:
 
@@ -424,12 +425,14 @@ tail -n 10 header.txt
 [samtools](http://www.htslib.org/doc/samtools.html)
 [FastQC](https://samtools.github.io/hts-specs/SAMv1.pdf)
 
+`sam` format albeit easy to read by human eyes, it is not very practical for data storage because as it not comressed, it uses a lot of space. The binary version of it `bam` is employed instead. It is very easy to convert between them.
+
 :computer: **Convert between sam and bam** formats:
 
 ```bash
 samtools view -hbo SRR3222409.bam SRR3222409_Aligned.out.sam
 ```
-:computer: **Sort** the alignments by the _starting position_ of each read:
+:computer: **Sort** the alignments by the _starting position_ of each read (this is the default sorting strategy and required by most applications unless stated otherwise):
 
 ```bash
 samtools sort -T tmpdir -o SRR3222409.sorted.bam SRR3222409.bam
@@ -477,29 +480,56 @@ lrwxrwxrwx 1 agata g2019018        47 Sep 14 15:19 SRR3222412.bam.bai -> /proj/g
 lrwxrwxrwx 1 agata g2019018        52 Sep 14 15:20 SRR3222412Log.final.out -> /proj/g2019018/nobackup/data/SRR3222412Log.final.out
 ```
 
+We will use the `bam` files and their indices `bam.bai` for viewing in a genome browser (#igv).
 
+##### <a name="qualimap"></a> Qualimap: post-alignment QC
 
+This QC steps yields information related to the contents of the sample, such as which regions most of the reads map to, distribution of reads along gene bodies, the frequency of the splice sites, etc. 
+The metrics gathered in this exercise are by no means exhaustive, nor is Qualimap the only application for post-alignment QC.
 
-:computer: **Sort** the alignments by the _starting position_ of each read:
+Qualimap requires `bam` files to be sorted by _read name_ rather than the position.
+
+:computer: **Sort** the alignments by _read name_ of each read (assuming your current directory is /transcriptome/bam):
 
 ```bash
+samtools sort -n -T tmp -o SRR3222409.nsorted.bam SRR3222409.bam 
+samtools sort -n -T tmp -o SRR3222412.nsorted.bam SRR3222412.bam 
+```
 
+Create and navigate to appropriate output directory:
+
+```bash
+mkdir /proj/g2019018/nobackup/agata/transcriptome/qualimap 
+cd /proj/g2019018/nobackup/agata/transcriptome/qualimap 
+module load QualiMap/2.2
+```
+
+:computer: **Execute Qualimap** for sample `SRR3222409`:
+
+```bash
+qualimap rnaseq -pe -bam /proj/g2019018/nobackup/agata/transcriptome/bam/SRR3222409.nsorted.bam -gtf /proj/g2019018/nobackup/data/Mus_musculus.GRCm38.85.gtf --outdir /proj/g2019018/nobackup/agata/transcriptome/qualimap/SRR3222409 --java-mem-size=63G -s > /dev/null 2>&1
+```
+
+You can now download the results and view them locally:
+
+```bash
+scp -r agata@rackham.uppmax.uu.se:/proj/g2019018/nobackup/agata/transcriptome/qualimap/SRR3222409 .
 ```
 
 
-```bash
+Now you can perform the same analysis for the second sample `SRR3222412`
 
-```
+<details>
+<summary>:key: Click to see suggested commands</summary>
+{% highlight bash %} 
+qualimap rnaseq -pe -bam /proj/g2019018/nobackup/agata/transcriptome/bam/SRR3222412.nsorted.bam -gtf /proj/g2019018/nobackup/data/Mus_musculus.GRCm38.85.gtf --outdir /proj/g2019018/nobackup/agata/transcriptome/qualimap/SRR3222412 --java-mem-size=63G -s > /dev/null 2>&1
+{% endhighlight %} 
+</details>  
+<br />
 
 
-```bash
-
-```
 
 
-```bash
-
-```
 
 
 ```bash
