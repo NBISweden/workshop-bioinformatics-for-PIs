@@ -549,7 +549,18 @@ scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcrip
 
 ##### <a name="igv"></a> IGV: viewing the data
 
-Finally, one can view the data directly in a genome browser. Here we will use `IGV`.
+Finally, one can view the data directly in a genome browser. Here we will use `Integrated Genomics Viewer, IGV`.
+
+[Integrated genomics viewer](http://software.broadinstitute.org/software/igv/) from Broad Institute is a nice graphical
+interface to view bam files (as well as many other formats) and genome annotations. It also has tools
+to export data and some functionality to look at splicing patterns in
+RNA-seq data sets. Even though it allows for some basic types of
+analysis it should be used more as a convenient way to look at your mapped
+data. Looking at data in this way might seem like a daunting approach
+as you can not check more than a few regions, but in in many cases it
+can reveal mapping patterns that are hard to catch with just summary
+statistics.
 
 You can download it from [IGV downloads page](https://software.broadinstitute.org/software/igv/download) if you haven't installed it yet. We recommend to download the newest version and use it locally rather than relying on the version installed on Uppmax.
 
+![](figures/igvmenu.png)
