@@ -592,7 +592,7 @@ Klk10 | kallikrein related-peptidase 10 | 4.87 |3.85e-54 |
 Col2a1 | collagen, type II, alpha 1 | 1.91 | 2.06e-41 |
 Scn7a | sodium channel, voltage-gated, type VII, alpha | -2.82 | 2.53e-41 |
 Tm7sf2 | transmembrane 7 superfamily member 2 | -2.15 | 8.97e-41 |
-Sema6d | sema domain, transmembrane domain (TM), and cytoplasmic domain, (semaphorin) 6D | -1.80 | 2.41e-37 |
+Sema6d | semaphorin 6D | -1.80 | 2.41e-37 |
 Acat2 | acetyl-Coenzyme A acetyltransferase 2 | -1.93 | 6.03e-37 |
 Frmd3 | FERM domain containing 3  | -2.36 | 1.32e-35 |
 Vat1l | vesicle amine transport protein 1 like  | -3.24 |2.03e-34 |
