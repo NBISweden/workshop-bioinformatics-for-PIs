@@ -546,3 +546,10 @@ Yes, it is as simple as this! `MultiQC` searches all files in the current direct
 ```
 scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcriptome/multiqc_report.html .
 ```
+
+##### <a name="igv"></a> IGV: viewing the data
+
+Finally, one can view the data directly in a genome browser. Here we will use `IGV`.
+
+You can download it from [IGV downloads page](https://software.broadinstitute.org/software/igv/download) if you haven't installed it yet. We recommend to download the newest version and use it locally rather than relying on the version installed on Uppmax.
+
