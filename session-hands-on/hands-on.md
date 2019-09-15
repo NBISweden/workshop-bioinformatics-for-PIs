@@ -338,7 +338,7 @@ lrwxrwxrwx 1 agata g2019018 50 Sep 14 14:59 SRR3222409_2.fastq.gz -> /proj/g2019
 
 
 ##### <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
-After receiving raw reads from a high throughput sequencing centre it is essential to check their quality. Why waste your time on data analyses of the poor quality data? Also, more importently, being aware of any quality pitfalls allows for adapting a filtering and preprocessing strategy.
+After receiving raw reads from a high throughput sequencing centre it is essential to check their quality. Why waste your time on data analyses of the poor quality data? Also, importantly, being aware of any quality pitfalls allows for adapting a filtering and preprocessing strategy to "clean up" the data.
 FastQC provide a simple way to do some quality control check on raw sequence data. It provides a modular set of analyses which you can use to get a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
 
 :mag: **Read** more on [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Can you figure out how to run it on Uppmax?  
@@ -423,9 +423,9 @@ tail -n 10 header.txt
 ```
 :mag: To find out more about `sam` / `bam` format and `samtools` check their respective documentation:
 [samtools](http://www.htslib.org/doc/samtools.html)
-[FastQC](https://samtools.github.io/hts-specs/SAMv1.pdf)
+[SAM](https://samtools.github.io/hts-specs/SAMv1.pdf)
 
-`sam` format albeit easy to read by human eyes, it is not very practical for data storage because as it not comressed, it uses a lot of space. The binary version of it `bam` is employed instead. It is very easy to convert between them.
+`sam` format albeit easy to read by human eyes, it is not very practical for data storage because as it not compressed, it uses a lot of space. The binary version of it `bam` is employed instead. It is very easy to convert between them.
 
 :computer: **Convert between sam and bam** formats:
 
@@ -480,7 +480,10 @@ lrwxrwxrwx 1 agata g2019018        47 Sep 14 15:19 SRR3222412.bam.bai -> /proj/g
 lrwxrwxrwx 1 agata g2019018        52 Sep 14 15:20 SRR3222412Log.final.out -> /proj/g2019018/nobackup/data/SRR3222412Log.final.out
 ```
 
-We will use the `bam` files and their indices `bam.bai` for viewing in a genome browser (#igv).
+We will use the `bam` files and their indices `bam.bai` for viewing in a genome browser [IGV](#igv).
+
+<br />
+[Jump to the top](#begin)
 
 ##### <a name="qualimap"></a> Qualimap: post-alignment QC
 
@@ -489,7 +492,7 @@ The metrics gathered in this exercise are by no means exhaustive, nor is Qualima
 
 Qualimap requires `bam` files to be sorted by _read name_ rather than the position.
 
-:computer: **Sort** the alignments by _read name_ of each read (assuming your current directory is /transcriptome/bam):
+:computer: **Sort** the alignments by _read name_ of each read (assuming your current directory is `/transcriptome/bam`):
 
 ```bash
 samtools sort -n -T tmp -o SRR3222409.nsorted.bam SRR3222409.bam 
@@ -527,6 +530,9 @@ qualimap rnaseq -pe -bam /proj/g2019018/nobackup/<username>/transcriptome/bam/SR
 </details>  
 <br />
 
+<br />
+[Jump to the top](#begin)
+
 ##### <a name="multiqc"></a> MultiQC: creating quality reports
 
 
@@ -546,18 +552,20 @@ Yes, it is as simple as this! `MultiQC` searches all files in the current direct
 ```
 scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcriptome/multiqc_report.html .
 ```
+<br />
+[Jump to the top](#begin)
 
 ##### <a name="igv"></a> IGV: viewing the data
 
 Finally, one can view the data directly in a genome browser. Here we will use `Integrated Genomics Viewer, IGV`.
 
-[Integrated genomics viewer](http://software.broadinstitute.org/software/igv/) from Broad Institute is a nice graphical
-interface to view bam files (as well as many other formats) and genome annotations. It also has tools
+[Integrated genomics viewer](http://software.broadinstitute.org/software/igv/) from Broad Institute is a graphical
+interface to view `bam` files (as well as many other standard file formats used in genomics) and genome annotations. It also has tools
 to export data and some functionality to look at splicing patterns in
 RNA-seq data sets. Even though it allows for some basic types of
 analysis it should be used more as a convenient way to look at your mapped
 data. Looking at data in this way might seem like a daunting approach
-as you can not check more than a few regions, but in in many cases it
+as you can not check more than a few regions, but in many cases it
 can reveal mapping patterns that are hard to catch with just summary
 statistics.
 
@@ -569,14 +577,13 @@ You need to copy the `bam` and `bam.bai` files to your local computer.
 
 ```bash
 scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcriptome/bam/*ba* .
-
 ```
 
 First, select the correct genome in the upper left corner. `mm10` is the genome the reads were mapped to. You may need to download the genome (`Genomes` > `Load Genome from Server`).
 
 You can now load the data: `File` > `Load from File` and select each of the samples.
 
-You can navigate to a desired location by specifying its genomic coordinates or just giving a gene name. You can check for example read coverage on Yap1 (the knocked-down gene).
+You can navigate to a desired location by specifying its genomic coordinates or just giving a gene name. You can check for example read coverage on Yap1 (the gene knocked-down in the experiment, i.e in the SRR3222412 sample).
 
 ![](figures/yap1.png){:width="700px"}
 
@@ -600,3 +607,6 @@ Vat1l | vesicle amine transport protein 1 like  | -3.24 |2.03e-34 |
 Compare read coverage for one of the top DE genes, notice the difference in the scale in the coverage track:
 
 ![](figures/scn.png){:width="700px"}
+
+<br />
+[Jump to the top](#begin)
