@@ -563,4 +563,7 @@ statistics.
 
 You can download it from [IGV downloads page](https://software.broadinstitute.org/software/igv/download) if you haven't installed it yet. We recommend to download the newest version and use it locally rather than relying on the version installed on Uppmax.
 
-![](figures/igvmenu.png | width=100)
+bla bla
+
+![](figures/igvmenu.png){:width="70px"}
+
