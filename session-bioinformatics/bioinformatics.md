@@ -1,11 +1,11 @@
 ---
 author: Johan Nylander
-institute: "NRM.se / NBIS.se / SciLifeLab.se"
+institute: "NBIS.se / NRM.se / SciLifeLab.se"
 title: Bioinformatics and Bioinformaticians
-subtitle: What is it? Who are they? and What do they do?
+subtitle: What is it? Who are they? What do they do?
 header-includes:
 - \setbeamerfont{title}{size={\fontsize{24}{24}}}
-- \titlegraphic{\includegraphics[height=1cm]{img/nbislogo-green-txt.jpg}\hspace*{4.5cm}~\includegraphics[height=1cm]{img/scilifelab_logo-green.jpg}}
+- \titlegraphic{\includegraphics[height=1cm]{img/nbislogo-green-txt.jpg}\hspace*{4cm}~\includegraphics[height=2cm]{img/nrm_logo_farg_rgb.png}\hspace*{2.5cm}~\includegraphics[height=1cm]{img/scilifelab_logo-green.jpg}}
 classoption:
 - aspectratio=169
 ---
@@ -58,6 +58,8 @@ Barone *et al.* 2018, PLoS Comput Biol
 ![](img/Unmet-needs-barchart.png)
 
 \vfill
+
+\footnotesize
 
 Barone *et al.* 2018, PLoS Comput Biol
 
