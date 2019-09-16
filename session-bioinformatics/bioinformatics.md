@@ -505,6 +505,10 @@ You have a big advantage over the bioinformaticians:
 
 \normalsize
 
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{img/pie-chart.jpg}
+\end{center}
+
 
 ---
 
