@@ -8,8 +8,8 @@ This tutorial will take you through a basic hands-on skills to be able to:
 
 1. navigate in unix environment & preview folders and files
 2. transfer data via `scp` between Uppmax and a local computer
-3. run basic bioinformatics tools to assess quality of the NGS data
-4. clone Github repository
+3. clone Github repository
+4. run basic bioinformatics tools to assess quality of the NGS data
 
 ## Basic unix commands
 We will practice on Rackham, Uppmax.
@@ -106,10 +106,10 @@ pwd
 # Go back to the home directory (cd with no options)
 cd
 
-# Go back to bip using pull pathway
+# Go back to bip using full pathway
 cd /home/username/bip
 
-# Go back to home directory using pull pathway
+# Go back to home directory using full pathway
 cd /home/username/
 ```
 
@@ -211,7 +211,7 @@ To download the repository, one could use `Download Zip` button. The repository 
 1. clone the repository to a local computer
 2. checkout a working branch to work on
 3. while working modify and/or add code to the working branch
-4. commit changes
+4. commit changes, with a message describing the changes
 5. push the branch to the Github repository
 6. on Github, one would make a `Pull request` to merge changes from the working branch to the master branch.
 
@@ -239,7 +239,7 @@ git add file-olga.txt
 git commit -m "Initiate file-olga.txt"
 
 # push changes
-git push --set-upstream origin unix
+git push
 
 ```
 Now you can go to https://github.com/NBISweden/workshop-bioinformatics-for-PIs.git and  click on a `New pull request`. Your collaborators can view the changes, ask for modifications, or incorporate the changes under the master project branch.
@@ -249,24 +249,34 @@ P.S. The above will also work on a local computer with .git installed
 * Read more: [https://coderefinery.github.io/git-intro/](https://coderefinery.github.io/git-intro/)
 
 
-
 ## <a name="begin"></a> Bioinformatics tools: RNA-seq data processing and QC tutorial
+A part of the bioinformatics work is to use already developed bioinformatics tools, i.e. software programs, designed for extracting information, processing data, and to carry out various data tasks, e.g. sequence or structural analysis. Many of these tools are open-source and are already installed on Uppmax. Others, may need to be installed according to needs. At [https://bio.tools](https://bio.tools) one can search through the most common ones.
 
-##### Preparing a working directory
-To get going, let's book a node and create a working directory named with your Uppmax user name `<username>` in the `/proj/g2019018/nobackup/` directory.
+Here, we will work with few of these tools and see how they can be put together to run a simple RNA-seq data processing workflow.
 
- NB! Remember to replace `<username>` with your Uppmax id throughout the exercise.
+##### Briefly about UPPMAX computational resources
+Up until now we have been trying various unix commands on Rackham under home directory. And this works fine, if we are navigating around and looking into files. Usually running bioinformatics tools requires more computational resources, and to address the resources usage most clusters have a system to allow fair and efficient usage. UPPMAX uses [Slurm](https://www.uppmax.uu.se/support/user-guides/slurm-user-guide/](https://www.uppmax.uu.se/support/user-guides/slurm-user-guide/) and one can run tools in batch mode or interactively. To keep it simple, one could say that in batch mode one submits jobs to a queue where they run in the background when the resources, cores and/or nodes, become available. Login nodes can be also used interactively, to quickly test algorithms, run smaller analysis or explore the computing environment, and this is how we will work now.
 
-:computer: **Book a node.** We have reserved half a node per person.
+We will also work under UPPMAX project `g2019018` which we have created for this course. This is because at uppmax home directory comes with a very limited storage space, and one uses computational projects to for processing power and storage projects for storing the data [https://www.uppmax.uu.se/support/getting-started/applying-for-projects/](https://www.uppmax.uu.se/support/getting-started/applying-for-projects/).
+
+##### Setting-up
+:computer: **Create a directory**
+Create a working directory named with your UPPMAX user name `<username>` in the `/proj/g2019018/nobackup/` directory. Remember to replace `<username>` with your UPPMAX id throughout the exercise.
+
+```bash
+mkdir /proj/g2019018/nobackup/<username>
+```
+
+:computer: **Book a node**
+We have reserved half a node per person.
 Please book a node only once, as otherwise you'll be taking resources from your fellow course participants.
 
-```
+```bash
 salloc -A g2019018 -t 03:30:00 -p core -n 10 --no-shell --reservation=g2019018_1
 ```
 
 Now you can check which node you have booked:
-
-```
+```bash
 jobinfo -u <username>
 ```
 
@@ -282,12 +292,13 @@ Running jobs:
 
 Connect to your node:
 
-```
+```bash
 ssh <node>
 ```
 
+##### Briefly on RNA-seq workflow
 
-RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. In this short introductory exercise we will present a workflow for QC and processing data from an RNA-seq experiment.
+RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. In this short introductory exercise we will present a workflow for QC and processing data from an RNA-seq experiment to try out some of common bioinformatics tools, here already installed on UPPMAX.
 
 Briefly we will,
 
@@ -302,7 +313,6 @@ Briefly we will,
 The data you will be using in this exercise is from the paper [YAP and TAZ control peripheral myelination and the expression of laminin receptors in Schwann cells. Poitelon et al. Nature Neurosci. 2016](http://www.nature.com/neuro/journal/v19/n7/abs/nn.4316.html). In the experiments performed in this study, YAP and TAZ were knocked-down in Schwann cells to study myelination, using the sciatic nerve in mice as a model.
 For the purpose of this tutorial, that is to shorten the time needed to run various bioinformatics steps, we have down-sampled the original files. We randomly sampled, without replacement, 25% reads from each sample, using fastq-sample from [fastq-tools](http://homes.cs.washington.edu/~dcjones/fastq-tools/).
 
-
 <br />
 [Jump to the top](#begin)
 
@@ -311,17 +321,18 @@ For the purpose of this tutorial, that is to shorten the time needed to run vari
 First, create the new working directory and link the raw data `fastq.gz` files.
 
 
-```
+```bash
+# Navigate to your folder under g2019018
 cd /proj/g2019018/nobackup/<username>/
-mkdir -p transcriptome/DATA
 
+# Create transcriptome and DATA directory, navigate to it
+mkdir -p transcriptome/DATA
 cd transcriptome/DATA
 
 ln -s /proj/g2019018/nobackup/data/SRR3222409_1.fastq.gz
 ln -s /proj/g2019018/nobackup/data/SRR3222409_2.fastq.gz
 ln -s /sw/courses/ngsintro/rnaseq/main/SRR3222409_1.fastq.gz
 ```
-
 
 :white_check_mark: **Check** if you linked the files correctly. You now should be able to see 2 links to the .fastq.gz files. (scroll right)
 ```bash
@@ -348,7 +359,7 @@ FastQC provide a simple way to do some quality control check on raw sequence dat
 ```bash
 mkdir /proj/g2019018/nobackup/<username>/transcriptome/fastqc
 cd /proj/g2019018/nobackup/<username>/transcriptome/fastqc
-``` 
+```
 <br />
 
 :computer: **Load** _bioinfo-tools_ and _FastQC_ modules
@@ -356,16 +367,28 @@ cd /proj/g2019018/nobackup/<username>/transcriptome/fastqc
 module load bioinfo-tools
 module load FastQC/0.11.8
 ```
+
+`FastQC` is already installed on UPPMAX. UPPMAX uses [module system](https://www.uppmax.uu.se/resources/software/module-system/) to organise the installed software, hence to activate `FastQC` we are using module load command. All bioinformatics tools on Uppmax are under `bioinfo-tools` module.
+
 <br />
 
-:computer: **Run** FastQC on all `.fastq.gz` files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: We will use a bash loop here, but you can of course run separate commands for each file.
+:computer: **Run** FastQC on all `.fastq.gz` files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb:
 
+```bash
+fastqc /proj/g2019018/nobackup/<username>/transcriptome/DATA//SRR3222409_1.fastq.gz -o /proj/g2019018/nobackup/<username>/transcriptome/fastqc/
+```
+To read more about `FastQC` try ``--help`` flag (will work with many of the tools)
+```bash
+fastqc --help
+```
+
+To run `FastQC` on all the files, we could also use a loop (slightly more advanced)
 ```bash
 for i in /proj/g2019018/nobackup/<username>/transcriptome/DATA/*.fastq.gz
 do
 fastqc $i -o /proj/g2019018/nobackup/<username>/transcriptome/fastqc/
 done
-``` 
+```
 <br />
 
 Check which files were generated in the _fastqc_ folder:
@@ -380,8 +403,7 @@ total 501
 -rw-rw-r-- 1 agata g2019018 266255 Sep 14 15:02 SRR3222409_2_fastqc.zip
 ```
 
-:mag: **Download** the FastQC for the proceeded sample from Uppmax to your local computer and **have a look** at it. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.  
-<br />
+:mag: **Download** the FastQC for the proceeded sample from UPPMAX to your local computer and **have a look** at it. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.  
 
 ```bash
 scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcriptome/fastqc/*html .
@@ -391,7 +413,6 @@ scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcrip
 <br />
 <br />
 [Jump to the top](#begin)
-
 
 ##### <a name="samtools"></a> Conversions of bam files
 
@@ -462,7 +483,7 @@ ln -s /proj/g2019018/nobackup/data/SRR3222412.bam.bai
 
 for i in /proj/g2019018/nobackup/data/*Log.final.out
 do
-ln -s $i 
+ln -s $i
 done
 ```
 
@@ -487,7 +508,7 @@ We will use the `bam` files and their indices `bam.bai` for viewing in a genome 
 
 ##### <a name="qualimap"></a> Qualimap: post-alignment QC
 
-This QC steps yields information related to the contents of the sample, such as which regions most of the reads map to, distribution of reads along gene bodies, the frequency of the splice sites, etc. 
+This QC steps yields information related to the contents of the sample, such as which regions most of the reads map to, distribution of reads along gene bodies, the frequency of the splice sites, etc.
 The metrics gathered in this exercise are by no means exhaustive, nor is Qualimap the only application for post-alignment QC.
 
 Qualimap requires `bam` files to be sorted by _read name_ rather than the position.
@@ -495,15 +516,15 @@ Qualimap requires `bam` files to be sorted by _read name_ rather than the positi
 :computer: **Sort** the alignments by _read name_ of each read (assuming your current directory is `/transcriptome/bam`):
 
 ```bash
-samtools sort -n -T tmp -o SRR3222409.nsorted.bam SRR3222409.bam 
-samtools sort -n -T tmp -o SRR3222412.nsorted.bam SRR3222412.bam 
+samtools sort -n -T tmp -o SRR3222409.nsorted.bam SRR3222409.bam
+samtools sort -n -T tmp -o SRR3222412.nsorted.bam SRR3222412.bam
 ```
 
 Create and navigate to appropriate output directory:
 
 ```bash
-mkdir /proj/g2019018/nobackup/<username>/transcriptome/qualimap 
-cd /proj/g2019018/nobackup/<username>/transcriptome/qualimap 
+mkdir /proj/g2019018/nobackup/<username>/transcriptome/qualimap
+cd /proj/g2019018/nobackup/<username>/transcriptome/qualimap
 module load QualiMap/2.2
 ```
 
@@ -524,9 +545,9 @@ Now you can perform the same analysis for the second sample `SRR3222412`
 
 <details>
 <summary>:key: Click to see suggested commands</summary>
-{% highlight bash %} 
+{% highlight bash %}
 qualimap rnaseq -pe -bam /proj/g2019018/nobackup/<username>/transcriptome/bam/SRR3222412.nsorted.bam -gtf /proj/g2019018/nobackup/data/Mus_musculus.GRCm38.85.gtf --outdir /proj/g2019018/nobackup/<username>/transcriptome/qualimap/SRR3222412 --java-mem-size=63G -s > /dev/null 2>&1
-{% endhighlight %} 
+{% endhighlight %}
 </details>  
 <br />
 
