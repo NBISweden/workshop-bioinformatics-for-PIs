@@ -42,12 +42,26 @@ Griffin *et al.* 2017, F1000Research
 
 ![](img/Unmet-needs-paper-title.png)
 
+\footnotesize
+
+\vfill
+
+Barone *et al.* 2018, PLoS Comput Biol
+
+\normalsize
+
 
 ---
 
 # Introduction
 
 ![](img/Unmet-needs-barchart.png)
+
+\vfill
+
+Barone *et al.* 2018, PLoS Comput Biol
+
+\normalsize
 
 
 ---
@@ -384,10 +398,6 @@ Chang 2015 Nature Communications
 \Large
 
 - Be able to look at your data?
-    - Locate your data
-    - Learn how to identify the "non-reproducible" parts of the data
-    - Transfer data
-    - ...
 
 \normalsize
 
@@ -396,11 +406,25 @@ Chang 2015 Nature Communications
 
 # What Should I Learn - As a Minimum?
 
+\Large
+
+- Be able to look at your data?
+    - Locate your data
+    - Learn how to identify the "non-reproducible" parts of the data
+    - Transfer data
+    - ...
+
+\normalsize
+
+---
+
+# What Should I Learn - As a Minimum?
+
 ```bash
 
-$ sshfs user-delivery01234@grus.uppmax.uu.se: ~/grus
-$ firefox ~/grus/P12345/00-Reports/*multiqc_report.html
-$ backup2nrm ~/grus/P12345
+$ sshfs  user-delivery01234@grus.uppmax.uu.se:  ~/grus
+$ firefox  ~/grus/P12345/00-Reports/*multiqc_report.html
+$ backup2nrm  ~/grus/P12345
 
 ```
 
@@ -498,7 +522,7 @@ You have a big advantage over the bioinformaticians:
 \Large
 
 - Great for learning about the data
-- Easy to pick out ouliers and trends
+- Easy to pick out outliers and trends
 
 \normalsize
 
