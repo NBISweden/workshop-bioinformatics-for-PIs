@@ -331,7 +331,6 @@ cd transcriptome/DATA
 
 ln -s /proj/g2019018/nobackup/data/SRR3222409_1.fastq.gz
 ln -s /proj/g2019018/nobackup/data/SRR3222409_2.fastq.gz
-ln -s /sw/courses/ngsintro/rnaseq/main/SRR3222409_1.fastq.gz
 ```
 
 :white_check_mark: **Check** if you linked the files correctly. You now should be able to see 2 links to the .fastq.gz files. (scroll right)
@@ -403,7 +402,7 @@ total 501
 -rw-rw-r-- 1 agata g2019018 266255 Sep 14 15:02 SRR3222409_2_fastqc.zip
 ```
 
-:mag: **Download** the FastQC for the proceeded sample from UPPMAX to your local computer and **have a look** at it. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.  
+:mag: **Download** the FastQC results for the proceeded sample from UPPMAX to your local computer and **have a look** at it. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.  
 
 ```bash
 scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcriptome/fastqc/*html .
@@ -414,9 +413,9 @@ scp <username>@rackham.uppmax.uu.se:/proj/g2019018/nobackup/<username>/transcrip
 <br />
 [Jump to the top](#begin)
 
-##### <a name="samtools"></a> Conversions of bam files
+##### <a name="samtools"></a> Conversions of read alignment file formats
 
-In this exercise we skip the read mapping step in the interest of time. The reads were mapped to the mouse reference genome `GRCm38` from Ensembl, which correspnds to `mm10` in the UCSC notation. The aligner used was `STAR`, version 2.7.0e [link to the current version](https://github.com/alexdobin/STAR).
+In this exercise we skip the read mapping step in the interest of time. The reads were mapped to the mouse reference genome `GRCm38` from Ensembl, which correspnds to `mm10` in the UCSC. The aligner used was `STAR`, version 2.7.0e [link to the current version](https://github.com/alexdobin/STAR).
 We will perform some useful manipulations on alignment files.
 
 :computer: **Create** new folder in your working directory and link a file with read alignments in a frequently used human-readable format `sam`:
