@@ -18,8 +18,8 @@ header-includes:
 # Welcome - Practical things first
 
 - **Internet** (WiFi: Eduroam, KI, SciLifeLab, *KISP-GuestNet*)
-- **Lunch**: Nanna Schwartz (walking distance)
-- **Dinner** (Tuesday  ~18): Grappa Bar (S:t Eriksgatan 86, also walking distance)
+- **Lunch**: Nanna Schwartz (walking distance) -- **Meal ticket!** 
+- **Dinner** (Tuesday at ~18): Grappa Bar (S:t Eriksgatan 86, also walking distance)
 
 - **Course web page**: <https://nbisweden.github.io/workshop-bioinformatics-for-PIs>
 
