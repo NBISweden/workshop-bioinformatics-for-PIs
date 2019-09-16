@@ -2,8 +2,12 @@
 author: Johan Nylander
 institute: "NRM.se / NBIS.se / SciLifeLab.se"
 title: Bioinformatics and Bioinformaticians
+subtitle: What is it? Who are they? and What do they do?
 header-includes:
+- \setbeamerfont{title}{size={\fontsize{24}{24}}}
 - \titlegraphic{\includegraphics[height=1cm]{img/nbislogo-green-txt.jpg}\hspace*{4.5cm}~\includegraphics[height=1cm]{img/scilifelab_logo-green.jpg}}
+classoption:
+- aspectratio=169
 ---
 
 
@@ -11,7 +15,6 @@ header-includes:
 
 # Introduction
 
-\bigskip
 \bigskip
 
 \large
@@ -21,7 +24,7 @@ header-includes:
 \normalsize
 
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{img/datacycle.png}
+    \includegraphics[width=0.4\textwidth]{img/datacycle.png}
 \end{center}
 
 \footnotesize
@@ -53,7 +56,7 @@ Griffin *et al.* 2017, F1000Research
 
 \begin{center}
 
-\includegraphics[width=0.8\textwidth]{img/studying_DNA.jpg}
+\includegraphics[width=0.6\textwidth]{img/studying_DNA.jpg}
 
 "Scientist studying DNA sequences"
 
@@ -81,7 +84,7 @@ Griffin *et al.* 2017, F1000Research
 
 ---
 
-# A Bioinformatician is, then, Someone who...
+# A Bioinformatician is, then, Someone Who...
 
 - Applies information technology to the field of molecular biology
 \medskip
@@ -430,7 +433,7 @@ No, but Why not?
 
 ---
 
-# Some Words of Comfort:
+# Some Words of Comfort: Can be Easy!
 
 \Large
 
@@ -442,13 +445,7 @@ No, but Why not?
 
 ---
 
-# Some Words of Comfort:
-
-\Large
-
-- A script is like a protocol:
-
-\normalsize
+# Some Words of Comfort: Just like a Protocol
 
 ```bash
 for infile in *.fas
@@ -468,7 +465,7 @@ done
 
 ---
 
-# Some Words of Comfort:
+# Some Words of Comfort: Just like a Protocol
 
 \Large
 
@@ -481,7 +478,7 @@ done
 
 ---
 
-# Some Words of Comfort:
+# Some Words of Comfort: You know the Data!
 
 \Large
 

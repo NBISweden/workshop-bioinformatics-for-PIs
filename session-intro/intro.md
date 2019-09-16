@@ -3,6 +3,8 @@ title: Bioinformatics for Principal Investigators
 date: 17-18 September 2019
 header-includes:
 - \titlegraphic{\includegraphics[height=1cm]{img/nbislogo-green-txt.jpg}\hspace*{4.5cm}~\includegraphics[height=1cm]{img/scilifelab_logo-green.jpg}}
+classoption:
+- aspectratio=169
 ---
 
 
@@ -17,7 +19,7 @@ header-includes:
 
 # Welcome - Practical things first
 
-- **Internet** (WiFi: Eduroam, KI, SciLifeLab, *KISP-GuestNet*)
+- **Internet** (WiFi: Eduroam, KI, SciLifeLab, *KI-Guest*)
 - **Lunch**: Nanna Schwartz (walking distance) -- **Meal ticket!** 
 - **Dinner** (Tuesday at ~18): Grappa Bar (S:t Eriksgatan 86, also walking distance)
 
@@ -26,7 +28,7 @@ header-includes:
 
 ---
 
-# Aim and Outcomes
+# Outcomes
 
 After this course you should be able to:
 
