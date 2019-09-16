@@ -2,6 +2,7 @@
 title: Bioinformatics for Principal Investigators
 date: 17-18 September 2019
 header-includes:
+- \setbeamerfont{title}{size={\fontsize{24}{24}}}
 - \titlegraphic{\includegraphics[height=1cm]{img/nbislogo-green-txt.jpg}\hspace*{4.5cm}~\includegraphics[height=1cm]{img/scilifelab_logo-green.jpg}}
 classoption:
 - aspectratio=169
