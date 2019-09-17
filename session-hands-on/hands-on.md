@@ -138,7 +138,17 @@ ls -lsh data
 
 **Looking into files**
 
+
 `head`, `tail` and `less` command come handy when looking into files
+
+To get access to the `hsa.gff3` file:
+
+```
+cp /proj/g2019018/nobackup/data/hsa.gff3 .
+```
+
+
+
 
 ```bash
 
@@ -165,12 +175,6 @@ less hsa.gff3
 
 # what happens when you use grep command?
 grep hsa-miR-608 hsa.gff3
-```
-
-To get access to the `hsa.gff3` file:
-
-```
-cp /proj/g2019018/nobackup/data/hsa.gff3 .
 ```
 
 
