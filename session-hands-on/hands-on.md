@@ -167,6 +167,14 @@ less hsa.gff3
 grep hsa-miR-608 hsa.gff3
 ```
 
+To get access to the `hsa.gff3` file:
+
+```
+cp /proj/g2019018/nobackup/data/hsa.gff3 .
+```
+
+
+
 **Data size**
 ```bash
 
