@@ -10,7 +10,7 @@ Room: Air and Fire (ground floor)
 |10:15|11:00|[Bioinformatics and Bioinformaticians](session-bioinformatics/bioinformatics.pdf) (Johan Nylander, Olga Dethlefsen)|
 |11:15|12:00|[Interdisciplinary collaboration](session-collaboration/session-collaboration-olga-dethlefsen.pdf) (Olga Dethlefsen, Johan Nylander)|
 |12:00|13:00|*Lunch*|
-|13:00|14:00|[Bioinformatics work-flows](session-workflows/) (Agata Smialowska, Johan Nylander, Olga Dethlefsen)|
+|13:00|14:00|[Bioinformatics work-flows](session-workflows/workflows_as.pdf) (Agata Smialowska, Johan Nylander, Olga Dethlefsen)|
 |14:00|17:00|[Getting bioinformatics done: hands-on](session-hands-on/hands-on) (Agata Smialowska, Olga Dethlefsen, Johan Nylander)|
 |18:00|Late|*Dinner*|
 
