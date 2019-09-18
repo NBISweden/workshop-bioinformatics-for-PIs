@@ -22,7 +22,7 @@ Room: Air and Fire (ground floor)
 |09:00|10.00|[The importance of managing data quality and content: ensuring reproducibility](session-DMP/2019-09-18_Data_Management_@_Bioinformatics_for_PIs.pdf) (Niclas Jareborg, Yvonne Kallberg)|
 |10:15|12:00|Data management plans: Why, Where, and How? (Niclas Jareborg, Yvonne Kallberg)|
 |12:00|13:00|*Lunch*|
-|13:00|13:45|[Data generation: Where? What? How much?](session-data/) (Carl Rubin)|
+|13:00|13:45|[Data generation: Where? What? How much?](session-data/Bioinformatics_for_PIs_20190918_CJR.pdf) (Carl Rubin)|
 |13:50|15:00|[Computational resources: What is needed and Where do I get it?](session-comp-res/BioInfo_for_PIs_marcus.pdf) (Marcus Lundberg)|
 |15:00|16:30|[Open discussion: SciLifeLab and NBIS - What can we do for you?](session-scilifelab/2019-09-18_Lindvall_SciLifeLab_and_NBIS.pdf) (All)|
 |16:30|17:00|Course wrap-up and [feedback](https://forms.gle/EjNRMcXEAdNpr71N8) (Jessica Lindvall, Johan Nylander)|
