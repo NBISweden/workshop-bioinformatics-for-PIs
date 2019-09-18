@@ -24,8 +24,8 @@ Room: Air and Fire (ground floor)
 |12:00|13:00|*Lunch*|
 |13:00|13:45|[Data generation: Where? What? How much?](session-data/) (Carl Rubin)|
 |13:50|15:00|[Computational resources: What is needed and Where do I get it?](session-comp-res/) (Marcus Lundberg)|
-|15:00|16:30|[Open discussion: SciLifeLab and NBIS - What can we do for you?]() (All)|
-|16:30|17:00|[Course wrap-up and feedback] (Jessica Lindvall, Johan Nylander)|
+|15:00|16:30|[Open discussion: SciLifeLab and NBIS - What can we do for you?](session-scilifelab/SciLifeLab_and_NBIS_annotated_LindvallJM_190918.pdf) (All)|
+|16:30|17:00|Course wrap-up and [feedback](https://forms.gle/EjNRMcXEAdNpr71N8) (Jessica Lindvall, Johan Nylander)|
 
 - *coffee break* every afternoon, ca. 14.30
 - *lunch* is at the Nanna Svartz, Aula Medica
