@@ -186,7 +186,7 @@ grep hsa-miR-608 hsa.gff3
 cd ~/bip
 
 # estimate file space usage
-du DATA/
+du data/
 
 # try some useful du options
 du -a
@@ -235,20 +235,20 @@ Go to [https://github.com](https://github.com) and create an account.
 # clone repository
 git clone https://github.com/NBISweden/workshop-bioinformatics-for-PIs.git
 
+# navigate into the repo and to session-git folder
+cd workshop-bioinformatics-for-PIs/session-git
+
 # checkout out working branch, e.g. feature-olga
 git checkout -b feature-olga
 
-# navigate into the repo and to session-git folder
-cd /workshop-bioinformatics-for-PIs/session-git
-
-# create a file with your contribution e.g.
-echo "Olga's contribution" > file-olga.txt
+# create a file with your contribution e.g. "My contribution"
+echo "My contribution" > file-<username>.txt
 
 # add file
-git add file-olga.txt
+git add file-<username>.txt
 
 # commit changes
-git commit -m "Initiate file-olga.txt"
+git commit -m "Initiate file-<username>.txt"
 
 # push changes
 git push
