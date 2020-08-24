@@ -474,6 +474,7 @@ No, but Why not?
 # Some Words of Comfort: Just like a Protocol
 
 ```bash
+# For every infile that ends in .fas:
 for infile in *.fas
 do
   alifile="${infile%.fas}.ali"
